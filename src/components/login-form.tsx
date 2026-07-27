@@ -47,7 +47,9 @@ export function LoginForm({
       navigate("/dashboard");
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        setErrors(error.response?.data.errors ?? []);
+        setErrors(
+          error.response?.data.error ? [error.response.data.error] : [],
+        );
       }
     }
   };
