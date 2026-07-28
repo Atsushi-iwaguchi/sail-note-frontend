@@ -34,13 +34,24 @@ export type PracticeRecord = {
   temperature: number | null;
 };
 
-type PracticeRecordCreateRequest = {
+
+export type PracticeRecordCreateRequest = {
   practice_date: string;
 
   wind_direction?: string;
 
   min_wind_speed?: number;
   max_wind_speed?: number;
+
+  tide?: string;
+
+  mast_rake?: number;
+  mast_bend?: number;
+
+  mast_spreader_angle?: number;
+  mast_spreader_length?: number;
+
+  mast_tension?: number;
 
   content?: string;
   reflection?: string;

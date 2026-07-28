@@ -1,10 +1,8 @@
 import Header from "@/components/header";
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
-  const { user } = useAuth();
   const navigate = useNavigate();
   const MenuItems = [
     { label: "練習記録", path: "/Practice-records" },
@@ -15,7 +13,6 @@ export default function Dashboard() {
     <>
       <Header />
       <div className="p-5">
-        <p className="mb-5">{user?.username}さん今日も頑張りましょう！</p>
         <ul className="flex gap-4 flex-wrap justify-center">
           {MenuItems.map((item) => (
             <li key={item.path}>
