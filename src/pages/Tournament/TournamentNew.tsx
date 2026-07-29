@@ -6,7 +6,7 @@ import { api } from "@/lib/axios";
 import type { TournamentRequest } from "@/types";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { data, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function TournamentNew() {
   const { register, handleSubmit } = useForm<TournamentRequest>();

@@ -25,7 +25,7 @@ function App() {
         <Route path="/practice-records/new" element={<PracticeRecordNew />} />
         <Route path="/tournaments" element={<Tournaments />} />
         <Route path="/tournaments/new" element={<TournamentNew />} />
-        <Route path="/tournaments/:id" element={<TournamentDetail />} />
+        <Route path="/tournaments/:tournament_id" element={<TournamentDetail />} />
         <Route path="/Monthly-goals" element={<MonthlyGoals />} />
       </Routes>
     </BrowserRouter>

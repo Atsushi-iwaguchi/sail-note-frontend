@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function TournamentDetail() {
-  const { id } = useParams();
+  const { tournament_id } = useParams();
   const [tournament, setTournament] = useState<Tournament>();
   const [entries, setEntries] = useState<Tournament_Entries[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -24,7 +24,7 @@ export default function TournamentDetail() {
     const fetchTournament = async () => {
       setError(null);
       try {
-        const response = await api.get(`/tournaments/${id}`);
+        const response = await api.get(`/tournaments/${tournament_id}`);
         setTournament(response.data);
       } catch {
         setError("取得に失敗しました");
@@ -35,14 +35,14 @@ export default function TournamentDetail() {
     const fetchEntries = async () => {
       setError(null);
       try {
-        const response = await api.get(`/tournaments/${id}/tournament_entries`);
+        const response = await api.get(`/tournaments/${tournament_id}/tournament_entries`);
         setEntries(response.data);
       } catch {
         setError("取得に失敗しました");
       }
     };
     fetchEntries();
-  }, [id]);
+  }, [tournament_id]);
 
   return (
     <>
@@ -64,7 +64,7 @@ export default function TournamentDetail() {
           </TableHeader>
           <TableBody>
             {entries.map((entry) => (
-              <TableRow key={entry.id} onClick={() => navigate(`/tournaments/${id}/tournament-entries/${entry.user_id}`)}>
+              <TableRow key={entry.id} onClick={() => navigate(`/tournaments/${tournament_id}/tournament-entries/${entry.id}`)}>
                 <TableCell className="font-medium">aaa</TableCell>
                 <TableCell>2-2-2-2-2</TableCell>
                 <TableCell className="text-right">{entry.overall_ranking}</TableCell>
