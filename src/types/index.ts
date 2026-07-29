@@ -1,12 +1,12 @@
-export type Role = 'member' | 'leader'
+export type Role = "member" | "leader";
 
 export type User = {
-    id: number
-    email: string
-    username: string
-    boat_class? : string
-    role: Role
-}
+  id: number;
+  email: string;
+  username: string;
+  boat_class?: string;
+  role: Role;
+};
 
 export type PracticeRecord = {
   id: number;
@@ -34,7 +34,6 @@ export type PracticeRecord = {
   temperature: number | null;
 };
 
-
 export type PracticeRecordCreateRequest = {
   practice_date: string;
 
@@ -56,3 +55,30 @@ export type PracticeRecordCreateRequest = {
   content?: string;
   reflection?: string;
 };
+
+export type Tournament = {
+  id: number;
+
+  name: string;
+  start_date: string;
+  end_date: string;
+  boats_count: number | null;
+  race_count: number | null;
+};
+
+export type TournamentRequest = {
+  name: string;
+  start_date: string;
+  end_date: string;
+  boats_count?: number
+  race_count?: number
+}
+
+export type Tournament_Entries = {
+  id: number;
+  tournament_id: number;
+  user_id: number;
+  overall_ranking: number;
+  reflection: string | null;
+};
+

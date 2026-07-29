@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 export default function Dashboard() {
   const navigate = useNavigate();
   const MenuItems = [
-    { label: "練習記録", path: "/Practice-records" },
-    { label: "過去の大会", path: "/Tournaments" },
-    { label: "月目標", path: "/Monthly-goals" },
+    { label: "練習記録", path: "/practice-records" },
+    { label: "過去の大会", path: "/tournaments" },
+    { label: "月目標", path: "/monthly-goals" },
   ];
   return (
     <>
