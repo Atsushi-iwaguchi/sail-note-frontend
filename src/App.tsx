@@ -4,7 +4,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PracticeRecords from "./pages/PracticeRecord/PracticeRecords";
 import Tournaments from "./pages/Tournament/Tournaments";
-import MonthlyGoals from "./pages/MonthlyGoals";
+import MonthlyGoals from "./pages/MonthlyGoal/MonthlyGoals";
 import Dashboard from "./pages/Dashboard";
 import PracticeRecordNew from "./pages/PracticeRecord/PracticeRecordNew";
 import PracticeRecordDetail from "./pages/PracticeRecord/PracticeRecordDetail";

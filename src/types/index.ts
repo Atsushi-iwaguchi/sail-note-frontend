@@ -70,9 +70,9 @@ export type TournamentRequest = {
   name: string;
   start_date: string;
   end_date: string;
-  boats_count?: number
-  race_count?: number
-}
+  boats_count?: number;
+  race_count?: number;
+};
 
 export type Tournament_Entries = {
   id: number;
@@ -82,3 +82,10 @@ export type Tournament_Entries = {
   reflection: string | null;
 };
 
+export type Monthly_goals = {
+  id: number;
+  user_id: number;
+  goal_date: string;
+  content: string;
+  achievement_rate: number;
+};
