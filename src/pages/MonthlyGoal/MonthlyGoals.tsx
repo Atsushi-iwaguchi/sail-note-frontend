@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { api } from "@/lib/axios";
 import type { Monthly_goals } from "@/types";
 import { AchievementChart } from "./linearChart";
+import GoalsIndex from "./goalsIndex";
 
 export default function MonthlyGoals() {
   const [goals, setGoals] = useState<Monthly_goals[]>([]);
@@ -29,6 +30,7 @@ export default function MonthlyGoals() {
         {error && <p>{error}</p>}
         <ChartRadialShape goals={goals} />
         <AchievementChart goals={goals}/>
+        <GoalsIndex goals={goals}/>
       </div>
     </>
   );
