@@ -1,75 +1,109 @@
-# React + TypeScript + Vite
+# SailLog Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ヨット部向け練習記録管理アプリ「Sail Note」のフロントエンドリポジトリです。
 
-Currently, two official plugins are available:
+## 🌊 概要
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+ヨット部の練習記録・大会成績・月間目標を一元管理し、部員間で情報を共有できるWebアプリケーションです。
 
-## React Compiler
+現役ヨット部員時代、練習内容や船のセッティング、反省点が各自バラバラに管理されており、過去の記録を振り返りにくいという理由から開発しました。
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**バックエンドリポジトリ**: []
 
-## Expanding the ESLint configuration
+## 🔗 デプロイURL
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- フロントエンド: https://xxxxx.vercel.app
+- バックエンドAPI: https://xxxxx.railway.app
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📸 スクリーンショット
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+（主要画面のスクリーンショットを貼る）
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠 使用技術
 
-```
+### フロントエンド
+- React 19
+- TypeScript
+- Vite
+- TailwindCSS
+- shadcn/ui
+- React Router
+- axios
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### インフラ・その他
+- Vercel（デプロイ）
+- GitHub Actions（CI/CD）
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ✨ 主な機能
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- ユーザー登録・ログイン（JWT認証）
+- 練習記録のCRUD（風向・風速・潮汐・船のセッティング等を記録）
+- 天気APIとの連携（練習日の天気を自動取得）
+- 練習記録への絞り込み検索（風向・風速・日付・ユーザー名）
+- コメント機能
+- 大会記録・レース結果の管理
+- 月間目標の設定・達成率の推移表示
 
-```
+## 🗄 設計資料
+
+- [ER図]
+- [DB設計書（Notion）]
+- [API設計（OpenAPI）]
+- [ワイヤーフレーム（Figma）]
+
+## 🚀 セットアップ手順
+
+### 必要環境
+- Node.js 20以上
+- npm
+
+### インストール
+
+\`\`\`bash
+git clone https://github.com/xxxxx/sail_log_frontend.git
+cd sail_log_frontend
+npm install
+\`\`\`
+
+### 環境変数
+
+\`.env\`ファイルを作成し、以下を設定してください。
+
+\`\`\`
+VITE_API_URL=http://localhost:3000
+\`\`\`
+
+### 開発サーバー起動
+
+\`\`\`bash
+npm run dev
+\`\`\`
+
+http://localhost:5173 でアクセスできます。
+
+### ビルド
+
+\`\`\`bash
+npm run build
+\`\`\`
+
+## 📁 ディレクトリ構成
+
+\`\`\`
+src/
+├ components/   共通コンポーネント
+├ pages/        各ページコンポーネント
+├ hooks/        カスタムフック
+├ lib/          axios設定等
+├ types/        型定義
+└ App.tsx
+\`\`\`
+
+## 👤 作成者
+
+（名前 / X / GitHub等のリンク）
+
+## 📝 今後の改善予定
+
+- カットレース計算ロジックの実装
+- パスワードリセット機能
