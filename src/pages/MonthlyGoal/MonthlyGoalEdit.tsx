@@ -1,12 +1,10 @@
 import Header from "@/components/header";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { api } from "@/lib/axios";
 import type { MonthlyGoalsRequest } from "@/types";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
+import MonthlyGoalsForm from "./MonthlyGoalForm";
 
 export default function TournamentNew() {
   const { id } = useParams();
@@ -19,7 +17,7 @@ export default function TournamentNew() {
     const fetchGoal = async () => {
       const response = await api.get(`/monthly_goals/${id}`);
       reset(response.data);
-      console.log(response.data)
+      console.log(response.data);
     };
     fetchGoal();
   }, [id, reset]);
@@ -37,32 +35,12 @@ export default function TournamentNew() {
     <>
       <Header />
 
-      <div>
-        <Card>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <p>
-              目標月
-              <Input className="w-30" type="date" {...register("goal_date")} />
-            </p>
-
-            <p>
-              目標内容
-              <Input className="w-80" type="text" {...register("content")} />
-            </p>
-            <p>
-              達成率
-              <Input
-                className="w-30"
-                type="number"
-                {...register("achievement_rate", { valueAsNumber: true })}
-              />
-            </p>
-
-            {error && <p>{error}</p>}
-            <Button type="submit">保存</Button>
-          </form>
-        </Card>
-      </div>
+      <MonthlyGoalsForm
+        register={register}
+        handleSubmit={handleSubmit}
+        onSubmit={onSubmit}
+        error={error}
+      />
     </>
   );
 }

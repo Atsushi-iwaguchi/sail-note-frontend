@@ -1,7 +1,41 @@
-export default function PracticeRecordForm() {
-    return
+import {
+  Frame,
+  FrameHeader,
+  FramePanel,
+  FrameTitle,
+} from "@/components/reui/frame";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import type { PracticeRecordCreateRequest } from "@/types";
+import { ChevronRightIcon } from "lucide-react";
+import type { UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
+
+type Props = {
+  onSubmit: (data: PracticeRecordCreateRequest) => void;
+  register: UseFormRegister<PracticeRecordCreateRequest>;
+  handleSubmit: UseFormHandleSubmit<PracticeRecordCreateRequest>;
+  error: string | null;
+};
+
+export default function PracticeRecordForm({
+  onSubmit,
+  register,
+  handleSubmit,
+  error,
+}: Props) {
+  return (
     <>
-         <p>
+      <div className="p-10">
+        <Card className="p-6">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <p>
               日付:
               <Input
                 className="w-30"
@@ -136,5 +170,9 @@ export default function PracticeRecordForm() {
             {error && <p>{error}</p>}
 
             <Button type="submit">保存</Button>
+          </form>
+        </Card>
+      </div>
     </>
+  );
 }
