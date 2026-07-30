@@ -34,12 +34,12 @@ export default function MonthlyGoals() {
         <h1 className="text-3xl font-bold">月間目標</h1>
         <Button onClick={() => navigate("/monthly-goals/new")}>新規作成</Button>
       </div>
-      <div className="p-15">
+      <div className="p-5">
         {error && <p>{error}</p>}
-        <ul>
-          <li className="mb-5"><ChartRadialShape goals={goals} /></li>
-          <li className="mb-10"><AchievementChart goals={goals} /></li>
-          <li><GoalsIndex goals={goals} /></li>
+        <ul className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <li><ChartRadialShape goals={goals} /></li>
+          <li><AchievementChart goals={goals} /></li>
+          <li className="lg:col-span-2"><GoalsIndex goals={goals} /></li>
         </ul>
       </div>
     </>

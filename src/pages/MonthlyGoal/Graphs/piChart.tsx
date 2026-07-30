@@ -118,12 +118,11 @@ export function ChartRadialShape({ goals }: Props) {
           </ChartContainer>
         </CardContent>
         <CardFooter className="flex-col gap-2 text-sm">
-          <div className="flex items-center gap-2 leading-none font-medium">
-            編集{" "}
-            <PenLine
-              className="h-4 w-4"
-              onClick={() => navigate(`/monthly-goals/${latestGoal.id}/edit`)}
-            />
+          <div
+            className="flex items-center gap-2 leading-none font-medium cursor-pointer"
+            onClick={() => navigate(`/monthly-goals/${latestGoal.id}/edit`)}
+          >
+            編集 <PenLine className="h-4 w-4 " />
           </div>
         </CardFooter>
       </Card>
