@@ -18,10 +18,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
+import { useEffect, useState } from "react";
+import { api } from "@/lib/axios";
+import type { Monthly_goals } from "@/types";
 
 export const description = "A radial chart with a custom shape";
-
-const chartData = [{ goal: "goal", percent: 60, fill: "var(--color-goal)" }];
 
 const chartConfig = {
   percent: {
@@ -34,6 +35,30 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function ChartRadialShape() {
+  const [goals, setGoals] = useState<Monthly_goals[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchGoals = async () => {
+      setError(null);
+      try {
+        const response = await api.get("/monthly_goals");
+        setGoals(response.data);
+      } catch {
+        setError("取得に失敗しました");
+      }
+    };
+    fetchGoals();
+  }, []);
+
+  const latestGoal = goals[0];
+
+  const monthlyPercent = latestGoal?.achievement_rate ?? 0;
+
+
+  const chartData = [
+    { goal: "goal", percent: monthlyPercent, fill: "var(--color-goal)" },
+  ];
   return (
     <Card className="flex flex-col">
       <CardHeader className="items-center pb-0">
@@ -41,13 +66,14 @@ export function ChartRadialShape() {
         <CardDescription>January - June 2026</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
+        {error && <p>{error}</p>}
         <ChartContainer
           config={chartConfig}
           className="mx-auto aspect-square max-h-[250px]"
         >
           <RadialBarChart
             data={chartData}
-            endAngle={100}
+            endAngle={(monthlyPercent * 360) / 100}
             innerRadius={65}
             outerRadius={95}
           >
