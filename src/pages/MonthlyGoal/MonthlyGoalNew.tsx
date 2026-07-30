@@ -3,22 +3,22 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { api } from "@/lib/axios";
-import type { TournamentRequest } from "@/types";
+import type { MonthlyGoalsRequest } from "@/types";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 export default function TournamentNew() {
-  const { register, handleSubmit } = useForm<TournamentRequest>();
+  const { register, handleSubmit } = useForm<MonthlyGoalsRequest>();
 
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
-  const onSubmit = async (data: TournamentRequest) => {
+  const onSubmit = async (data: MonthlyGoalsRequest) => {
     setError(null);
     try {
-      await api.post("/tournaments", { tournament: data });
-      navigate("/tournaments");
+      await api.post("/monthly_goals", { monthly_goal: data });
+      navigate("/monthly-goals");
     } catch {
       setError("大会記録作成に失敗しました");
     }
@@ -31,37 +31,23 @@ export default function TournamentNew() {
         <Card>
           <form onSubmit={handleSubmit(onSubmit)}>
             <p>
-              大会名
-              <Input className="w-80" type="text" {...register("name")} />
+              目標月
+              <Input className="w-30" type="date" {...register("goal_date")} />
             </p>
 
             <p>
-              開催日
-              <Input className="w-30" type="date" {...register("start_date")} />
+              目標内容
+              <Input className="w-80" type="text" {...register("content")} />
             </p>
             <p>
-              終了日
-              <Input className="w-30" type="date" {...register("end_date")} />
+              達成率
+              <Input
+                className="w-30"
+                type="number"
+                {...register("achievement_rate", { valueAsNumber: true })}
+              />
             </p>
 
-            <p>
-              参加艇数
-              <Input
-                className="w-20"
-                type="number"
-                {...register("boats_count", {
-                  valueAsNumber: true,
-                })}
-              />
-              レース数
-              <Input
-                className="w-20"
-                type="number"
-                {...register("race_count", {
-                  valueAsNumber: true,
-                })}
-              />
-            </p>
             {error && <p>{error}</p>}
             <Button type="submit">保存</Button>
           </form>

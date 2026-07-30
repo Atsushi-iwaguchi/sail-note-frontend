@@ -21,7 +21,7 @@ type Props = {
 const chartConfig = {
   achievement: {
     label: "達成率",
-    color: "var(--chart-1)",
+    color: "hsl(198, 82%, 40%)",
   },
 } satisfies ChartConfig;
 

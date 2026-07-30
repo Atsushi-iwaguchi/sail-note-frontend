@@ -11,6 +11,8 @@ import PracticeRecordDetail from "./pages/PracticeRecord/PracticeRecordDetail";
 import PracticeRecordEdit from "./pages/PracticeRecord/PracticeRecordEdit";
 import TournamentDetail from "./pages/Tournament/TournamentDetail";
 import TournamentNew from "./pages/Tournament/TournamentNew";
+import MonthlyGoalsNew from "./pages/MonthlyGoal/MonthlyGoalNew";
+import MonthlyGoalEdit from "./pages/MonthlyGoal/MonthlyGoalEdit";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path="/tournaments/new" element={<TournamentNew />} />
         <Route path="/tournaments/:id" element={<TournamentDetail />} />
         <Route path="/Monthly-goals" element={<MonthlyGoals />} />
+        <Route path="/Monthly-goals/new" element={<MonthlyGoalsNew />} />
+        <Route path="/Monthly-goals/:id/edit" element={<MonthlyGoalEdit />} />
       </Routes>
     </BrowserRouter>
   );

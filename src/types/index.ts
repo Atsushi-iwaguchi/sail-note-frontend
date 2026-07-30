@@ -89,3 +89,9 @@ export type Monthly_goals = {
   content: string;
   achievement_rate: number;
 };
+
+export type MonthlyGoalsRequest = {
+  goal_date: string;
+  content: string;
+  achievement_rate?: number;
+}

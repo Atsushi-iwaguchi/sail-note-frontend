@@ -1,6 +1,6 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
+import { PenLine } from "lucide-react";
 import {
   Label,
   PolarGrid,
@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/card";
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 import type { Monthly_goals } from "@/types";
+import { useNavigate } from "react-router-dom";
 
 export const description = "A radial chart with a custom shape";
 
@@ -28,7 +29,7 @@ const chartConfig = {
   },
   goal: {
     label: "goal",
-    color: "var(--chart-2)",
+    color: "hsl(198, 82%, 40%)",
   },
 } satisfies ChartConfig;
 
@@ -51,6 +52,9 @@ export function ChartRadialShape({ goals }: Props) {
   const chartData = [
     { goal: "goal", percent: monthlyPercent, fill: "var(--color-goal)" },
   ];
+
+  const navigate = useNavigate();
+
   return (
     <>
       <Card className="flex flex-col">
@@ -115,10 +119,11 @@ export function ChartRadialShape({ goals }: Props) {
         </CardContent>
         <CardFooter className="flex-col gap-2 text-sm">
           <div className="flex items-center gap-2 leading-none font-medium">
-            Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-          </div>
-          <div className="leading-none text-muted-foreground">
-            Showing total percent for the last 6 months
+            編集{" "}
+            <PenLine
+              className="h-4 w-4"
+              onClick={() => navigate(`/monthly-goals/${latestGoal.id}/edit`)}
+            />
           </div>
         </CardFooter>
       </Card>
