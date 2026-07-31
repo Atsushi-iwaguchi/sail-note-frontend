@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import PracticeRecordForm from "./PracticeRecordForm";
 
 export default function PracticeRecordNew() {
-  const { register, handleSubmit } = useForm<PracticeRecordCreateRequest>({
+  const { register, handleSubmit, watch, setValue } = useForm<PracticeRecordCreateRequest>({
     defaultValues: {
       //今日の日付を自動で取得する
       practice_date: new Date().toISOString().split("T")[0],
@@ -32,6 +32,8 @@ export default function PracticeRecordNew() {
         register={register}
         handleSubmit={handleSubmit}
         onSubmit={onSubmit}
+        watch={watch}
+        setValue={setValue}
         error={error}
       />
     </>

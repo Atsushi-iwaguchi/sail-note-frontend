@@ -8,7 +8,7 @@ import PracticeRecordForm from "./PracticeRecordForm";
 
 export default function PracticeRecordNew() {
   const { id } = useParams();
-  const { register, handleSubmit, reset } =
+  const { register, handleSubmit, watch, reset } =
     useForm<PracticeRecordCreateRequest>();
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -33,10 +33,11 @@ export default function PracticeRecordNew() {
   return (
     <>
       <Header />
-      <PracticeRecordForm 
+      <PracticeRecordForm
         register={register}
         handleSubmit={handleSubmit}
         onSubmit={onSubmit}
+        watch={watch}
         error={error}
       />
     </>
