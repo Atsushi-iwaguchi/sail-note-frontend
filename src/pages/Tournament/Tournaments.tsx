@@ -41,7 +41,7 @@ export default function Tournaments() {
             <li className="p-2 mb-2" key={tournament.id}>
               <Card
                 className="cursor-pointer p-4"
-                onClick={() => navigate(`/tournaments/${tournament.id}`)}
+                onClick={() => navigate(`/tournaments/${tournament.id}/tournament-entries`)}
               >
                 <CardHeader>
                   <CardTitle>

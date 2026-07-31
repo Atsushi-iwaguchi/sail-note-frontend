@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PracticeRecords from "./pages/PracticeRecord/PracticeRecords";
@@ -23,6 +23,7 @@ function App() {
         <Route path="/register" element={<Register />} />
 
         <Route element={<PrivateRoute />}>
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/practice-records" element={<PracticeRecords />} />
           <Route
@@ -36,7 +37,7 @@ function App() {
           <Route path="/practice-records/new" element={<PracticeRecordNew />} />
           <Route path="/tournaments" element={<Tournaments />} />
           <Route path="/tournaments/new" element={<TournamentNew />} />
-          <Route path="/tournaments/:id" element={<TournamentDetail />} />
+          <Route path="/tournaments/:id/tournament-entries" element={<TournamentDetail />} />
           <Route path="/Monthly-goals" element={<MonthlyGoals />} />
           <Route path="/Monthly-goals/new" element={<MonthlyGoalsNew />} />
           <Route path="/Monthly-goals/:id/edit" element={<MonthlyGoalEdit />} />
