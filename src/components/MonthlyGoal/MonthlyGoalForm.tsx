@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import type { MonthlyGoalsRequest } from "@/types";
 import type { UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
+import { Label } from "../ui/label";
+import { Textarea } from "../ui/textarea";
 
 type Props = {
   register: UseFormRegister<MonthlyGoalsRequest>;
@@ -12,35 +13,52 @@ type Props = {
 };
 
 export default function MonthlyGoalsForm({
-    register, onSubmit, handleSubmit, error
+  register,
+  onSubmit,
+  handleSubmit,
+  error,
 }: Props) {
   return (
     <>
-      <div>
-        <Card>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <p>
-              目標月
-              <Input className="w-30" type="date" {...register("goal_date")} />
-            </p>
+      <div className="p-4 sm:p-10">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="goal_date">目標月</Label>
+            <Input
+              id="goal_date"
+              className="w-full sm:w-40"
+              type="date"
+              {...register("goal_date")}
+            />
+          </div>
 
-            <p>
-              目標内容
-              <Input className="w-80" type="text" {...register("content")} />
-            </p>
-            <p>
-              達成率
-              <Input
-                className="w-30"
-                type="number"
-                {...register("achievement_rate", { valueAsNumber: true })}
-              />
-            </p>
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="content">目標内容</Label>
+            <Textarea
+              id="content"
+              className="w-full"
+              {...register("content")}
+            />
+          </div>
 
-            {error && <p>{error}</p>}
-            <Button type="submit">保存</Button>
-          </form>
-        </Card>
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="achievement_rate">達成率（%）</Label>
+            <Input
+              id="achievement_rate"
+              className="w-full sm:w-32"
+              type="number"
+              min={0}
+              max={100}
+              {...register("achievement_rate", { valueAsNumber: true })}
+            />
+          </div>
+
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+
+          <Button type="submit" className="self-start">
+            保存
+          </Button>
+        </form>
       </div>
     </>
   );

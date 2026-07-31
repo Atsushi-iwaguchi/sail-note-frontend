@@ -12,6 +12,8 @@ import {
   type UseFormWatch,
 } from "react-hook-form";
 import TuningTable from "./TunigTable";
+import { Textarea } from "@/components/ui/textarea"
+import { Label } from "../ui/label";
 
 type Props = {
   onSubmit: (data: PracticeRecordCreateRequest) => void;
@@ -162,11 +164,10 @@ export default function PracticeRecordForm({
             <TuningTable register={register} />
 
             <div className="flex flex-col gap-2">
-              <label htmlFor="reflection">振り返り</label>
-              <Input
+              <Label htmlFor="reflection">振り返り</Label>
+              <Textarea
                 id="reflection"
-                className="w-full h-32"
-                type="text"
+                className="w-full min-h-32"
                 {...register("reflection")}
               />
             </div>

@@ -1,5 +1,5 @@
 import { useAuth } from "@/contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 
 export default function Header() {
@@ -7,16 +7,21 @@ export default function Header() {
   const navigate = useNavigate();
 
   //ログアウト操作とその後ログインページに遷移
-  const HandleLogout = () => {
+  const handleLogout = () => {
     logout();
     navigate("/login");
   };
-  return(
-    <div className="p-2">
-        <header className="bg-gray-200 flex items-center justify-between">
-          <Button className="m-2 bg-gray-200" variant="outline" onClick={() => navigate("/dashboard")}>Sail Note</Button>
-          <Button className="m-2" variant="outline" onClick={HandleLogout}>ログアウト</Button>
-        </header>
-      </div>
-  )
+  return (
+    <header className="sticky top-0 z-10 flex items-center justify-between bg-gray-200 px-4 py-2 shadow-sm">
+      <Link
+        to="/dashboard"
+        className="text-lg font-bold tracking-tight text-gray-800 hover:text-gray-600 transition-colors"
+      >
+        Sail Note
+      </Link>
+      <Button variant="outline" onClick={handleLogout}>
+        ログアウト
+      </Button>
+    </header>
+  );
 }

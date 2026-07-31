@@ -26,36 +26,40 @@ export default function PracticeRecords() {
   return (
     <>
       <Header />
-      <div>
-        <Button onClick={() => navigate("/practice-records/new")}>
-          新規作成
-        </Button>
-      </div>
-      <div className="p-5">
-        <p>絞り込み</p>
-        {error && <p>{error}</p>}
-        <ul>
+      <div className="p-4 sm:p-5">
+        <div className="mb-4">
+          <Button onClick={() => navigate("/practice-records/new")}>
+            新規作成
+          </Button>
+        </div>
+
+        <p className="mb-2 text-sm text-muted-foreground">絞り込み</p>
+        {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
+
+        <ul className="list-none flex flex-col gap-3">
           {records.map((record) => (
-            <li className="mb-2" key={record.id}>
+            <li key={record.id}>
               <Card
-                className="cursor-pointer p-4"
+                className="cursor-pointer p-4 hover:bg-accent transition-colors"
                 onClick={() => navigate(`/practice-records/${record.id}`)}
               >
                 <CardHeader>
-                  <CardTitle>
+                  <CardTitle className="text-base sm:text-lg">
                     {record.user?.username} {record.practice_date}
                   </CardTitle>
                 </CardHeader>
 
-                <CardContent>
-                  <p>
-                    風向: {record.wind_direction ?? "-"}, 風速:
-                    {record.min_wind_speed ?? "-"}~
-                    {record.max_wind_speed ?? "-"} m/s, 気温:
-                    {record.temperature ?? "-"}℃
+                <CardContent className="flex flex-col gap-1">
+                  <p className="text-sm text-muted-foreground flex flex-wrap gap-x-1">
+                    <span>風向: {record.wind_direction ?? "-"}</span>
+                    <span>
+                      風速: {record.min_wind_speed ?? "-"}~
+                      {record.max_wind_speed ?? "-"} m/s
+                    </span>
+                    <span>気温: {record.temperature ?? "-"}℃</span>
                   </p>
 
-                  <p>{record.reflection}</p>
+                  <p className="text-sm line-clamp-2">{record.reflection}</p>
                 </CardContent>
               </Card>
             </li>
