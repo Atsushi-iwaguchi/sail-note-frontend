@@ -14,6 +14,8 @@ import TournamentNew from "./pages/Tournament/TournamentNew";
 import MonthlyGoalsNew from "./pages/MonthlyGoal/MonthlyGoalNew";
 import MonthlyGoalEdit from "./pages/MonthlyGoal/MonthlyGoalEdit";
 import PrivateRoute from "./components/RouteGuard";
+import TournamentEntryNew from "./pages/Tournament/TournametEntries/TounamentEntryNew";
+import TournamentEntry from "./pages/Tournament/TournametEntries/TournamentEntry";
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
           <Route path="/tournaments" element={<Tournaments />} />
           <Route path="/tournaments/new" element={<TournamentNew />} />
           <Route path="/tournaments/:id/tournament-entries" element={<TournamentDetail />} />
+          <Route path="/tournaments/:id/tournament-entries/:entry_id" element={<TournamentEntry />} />
+          <Route path="/tournaments/:id/tournament-entries/new" element={<TournamentEntryNew />} />
           <Route path="/Monthly-goals" element={<MonthlyGoals />} />
           <Route path="/Monthly-goals/new" element={<MonthlyGoalsNew />} />
           <Route path="/Monthly-goals/:id/edit" element={<MonthlyGoalEdit />} />

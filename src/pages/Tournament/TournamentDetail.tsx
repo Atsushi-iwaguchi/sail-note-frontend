@@ -46,7 +46,6 @@ export default function TournamentDetail() {
     fetchEntries();
   }, [id]);
 
-
   return (
     <>
       <Header />
@@ -72,7 +71,7 @@ export default function TournamentDetail() {
                 key={entry.id}
                 onClick={() =>
                   navigate(
-                    `/tournaments/${id}/tournament-entries/${entry.user_id}`,
+                    `/tournaments/${id}/tournament-entries/${entry.id}`,
                   )
                 }
               >
@@ -90,7 +89,11 @@ export default function TournamentDetail() {
             ))}
           </TableBody>
         </Table>
-        <Button onClick={()=> navigate(`/tournaments/${id}/tournament_entries/new`)}>add</Button>
+        <Button
+          onClick={() => navigate(`/tournaments/${id}/tournament-entries/new`)}
+        >
+          add
+        </Button>
       </div>
     </>
   );

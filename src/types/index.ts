@@ -92,6 +92,18 @@ export type RaceResult = {
   score: number;
 };
 
+export type RaceResultRequest = {
+  race_results: {
+    race_number: number;
+    score: number;
+  }[];
+};
+
+export type TournamentEntryRequest = {
+  overall_ranking: number;
+  reflection?: string;
+}
+
 export type Monthly_goals = {
   id: number;
   user_id: number;
