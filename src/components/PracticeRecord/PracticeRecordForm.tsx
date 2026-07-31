@@ -52,98 +52,130 @@ export default function PracticeRecordForm({
 
   return (
     <>
-      <div className="p-10">
-        <Card className="p-6">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <p>
-              日付:
+      <div className="p-4 sm:p-10">
+        <Card className="p-4 sm:p-6">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-6"
+          >
+            <div className="flex flex-wrap items-center gap-2">
+              <label htmlFor="practice_date" className="w-16 shrink-0">
+                日付
+              </label>
               <Input
-                className="w-30"
+                id="practice_date"
+                className="w-full sm:w-40"
                 type="date"
                 {...register("practice_date")}
               />
-            </p>
-            <p>
-              風向
+            </div>
+
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <div className="flex items-center gap-2">
+                <label htmlFor="wind_direction" className="shrink-0">
+                  風向
+                </label>
+                <Input
+                  id="wind_direction"
+                  className="w-24"
+                  type="text"
+                  {...register("wind_direction")}
+                />
+              </div>
+              <div className="flex items-center gap-2">
+                <label htmlFor="min_wind_speed" className="shrink-0">
+                  風速 min
+                </label>
+                <Input
+                  id="min_wind_speed"
+                  className="w-20"
+                  type="number"
+                  {...register("min_wind_speed", { valueAsNumber: true })}
+                />
+              </div>
+              <div className="flex items-center gap-2">
+                <label htmlFor="max_wind_speed" className="shrink-0">
+                  max
+                </label>
+                <Input
+                  id="max_wind_speed"
+                  className="w-20"
+                  type="number"
+                  {...register("max_wind_speed", { valueAsNumber: true })}
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <div className="flex items-center gap-2">
+                <label htmlFor="weather" className="shrink-0">
+                  天気
+                </label>
+                <Input
+                  id="weather"
+                  className="w-24"
+                  type="text"
+                  {...register("weather")}
+                />
+              </div>
+              <div className="flex items-center gap-2">
+                <label htmlFor="temperature" className="shrink-0">
+                  気温
+                </label>
+                <Input
+                  id="temperature"
+                  className="w-24"
+                  type="number"
+                  step="0.1"
+                  {...register("temperature", { valueAsNumber: true })}
+                />
+              </div>
+              <div className="flex items-center gap-2">
+                <label htmlFor="tide" className="shrink-0">
+                  潮汐
+                </label>
+                <select
+                  id="tide"
+                  className="w-32 rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                  {...register("tide")}
+                >
+                  <option value="">選択してください</option>
+                  <option value="oshio">大潮</option>
+                  <option value="nakashio">中潮</option>
+                  <option value="koshio">小潮</option>
+                  <option value="nagashio">長潮</option>
+                  <option value="wakashio">若潮</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label htmlFor="content">練習内容</label>
               <Input
-                className="w-20"
+                id="content"
+                className="w-full"
                 type="text"
-                {...register("wind_direction")}
+                {...register("content")}
               />
-              風速 min:
-              <Input
-                className="w-20"
-                type="number"
-                {...register("min_wind_speed", {
-                  valueAsNumber: true,
-                })}
-              />
-              max:
-              <Input
-                className="w-20"
-                type="number"
-                {...register("max_wind_speed", {
-                  valueAsNumber: true,
-                })}
-              />
-            </p>
-            <p>
-              天気
-              <Input
-                className="w-20"
-                type="text"
-                {...register("weather")}
-              ></Input>
-              気温
-              <Input
-                className="w-20"
-                type="number"
-                step="0.1"
-                {...register("temperature", {
-                  valueAsNumber: true,
-                })}
-              ></Input>
-              潮汐
-              <select
-                className=" w-20
-                            rounded-md
-                            border
-                            border-input
-                            bg-background
-                            px-3
-                            py-2
-                            text-sm shadow-sm
-                            outline-none
-                            focus:ring-2
-                            focus:ring-ring
-                            focus:ring-offset-2"
-                {...register("tide")}
-              >
-                <option value="">選択してください</option>
-                <option value="oshio">大潮</option>
-                <option value="nakashio">中潮</option>
-                <option value="koshio">小潮</option>
-                <option value="nagashio">長潮</option>
-                <option value="wakashio">若潮</option>
-              </select>
-            </p>
-            <p>
-              練習内容
-              <Input className="w-100" type="text" {...register("content")} />
-            </p>
+            </div>
+
             <TuningTable register={register} />
-            <p>
-              振り返り{" "}
+
+            <div className="flex flex-col gap-2">
+              <label htmlFor="reflection">振り返り</label>
               <Input
-                className="w-140 h-50"
+                id="reflection"
+                className="w-full h-32"
                 type="text"
                 {...register("reflection")}
               />
-            </p>
+            </div>
 
-            {error && <p>{error}</p>}
+            {error && <p className="text-red-500 text-sm">{error}</p>}
 
-            <Button type="submit">保存</Button>
+            <Button type="submit" className="self-start">
+              保存
+            </Button>
           </form>
         </Card>
       </div>

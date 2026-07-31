@@ -21,9 +21,14 @@ type Props = {
 
 export default function TuningTable({ register }: Props) {
   return (
-    <div className="mb-4 ">
-      <Frame stacked dense spacing="sm" className="w-100 bg-sky-100">
-        <Collapsible defaultOpen>
+    <div className="mb-4">
+      <Frame
+        stacked
+        dense
+        spacing="sm"
+        className="w-full sm:max-w-md bg-sky-100"
+      >
+        <Collapsible defaultOpen={false}>
           <CollapsibleTrigger className="flex w-full">
             <FrameHeader className="flex grow flex-row items-center justify-between gap-2">
               <FrameTitle className="text-sm font-medium">
@@ -37,60 +42,42 @@ export default function TuningTable({ register }: Props) {
           </CollapsibleTrigger>
           <CollapsibleContent>
             <FramePanel>
-              <ul>
-                <li className="grid grid-cols-2 items-center gap-4">
-                  <Label htmlFor="mast_tension">テンション</Label>
-                  <Input
-                    id="mast_tension"
-                    type="number"
-                    {...register("mast_tension", {
-                      valueAsNumber: true,
-                    })}
-                  />
-                </li>
-                <li className="grid grid-cols-2 items-center gap-2">
-                  <Label htmlFor="mast_rake">レーキ</Label>
-                  <Input
-                    id="mast_rake"
-                    type="number"
-                    {...register("mast_rake", {
-                      valueAsNumber: true,
-                    })}
-                  />
-                </li>
-                <li className="grid grid-cols-2 items-center gap-2">
-                  <Label htmlFor="mast_bend">ベンド</Label>
-                  <Input
-                    id="mast_bend"
-                    type="number"
-                    {...register("mast_bend", {
-                      valueAsNumber: true,
-                    })}
-                  />
-                </li>
-                <li className="grid grid-cols-2 items-center gap-2">
-                  <Label htmlFor="mast_spreader_angle">ディフレクション</Label>
-                  <Input
-                    id="mast_spreader_angle"
-                    type="number"
-                    {...register("mast_spreader_angle", {
-                      valueAsNumber: true,
-                    })}
-                  />
-                </li>
-                <li className="grid grid-cols-2 items-center gap-2">
-                  <Label htmlFor="mast_spreader_length">
-                    スプレッターの長さ
-                  </Label>
-                  <Input
-                    id="mast_spreader_length"
-                    type="number"
-                    {...register("mast_spreader_length", {
-                      valueAsNumber: true,
-                    })}
-                  />
-                </li>
-              </ul>
+              <div className="grid grid-cols-2 items-center gap-x-4 gap-y-3">
+                <Label htmlFor="mast_tension">テンション</Label>
+                <Input
+                  id="mast_tension"
+                  type="number"
+                  {...register("mast_tension", { valueAsNumber: true })}
+                />
+
+                <Label htmlFor="mast_rake">レーキ</Label>
+                <Input
+                  id="mast_rake"
+                  type="number"
+                  {...register("mast_rake", { valueAsNumber: true })}
+                />
+
+                <Label htmlFor="mast_bend">ベンド</Label>
+                <Input
+                  id="mast_bend"
+                  type="number"
+                  {...register("mast_bend", { valueAsNumber: true })}
+                />
+
+                <Label htmlFor="mast_spreader_angle">ディフレクション</Label>
+                <Input
+                  id="mast_spreader_angle"
+                  type="number"
+                  {...register("mast_spreader_angle", { valueAsNumber: true })}
+                />
+
+                <Label htmlFor="mast_spreader_length">スプレッターの長さ</Label>
+                <Input
+                  id="mast_spreader_length"
+                  type="number"
+                  {...register("mast_spreader_length", { valueAsNumber: true })}
+                />
+              </div>
             </FramePanel>
           </CollapsibleContent>
         </Collapsible>
