@@ -1,4 +1,4 @@
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { api } from "@/lib/axios";
@@ -38,23 +38,26 @@ export default function PracticeRecords() {
           {records.map((record) => (
             <li className="mb-2" key={record.id}>
               <Card
-              className="cursor-pointer p-4"
-              onClick={() => navigate(`/practice-records/${record.id}`)}
-            >
-              <CardHeader>
-                <CardTitle>{record.user?.username} {record.practice_date}</CardTitle>
-              </CardHeader>
+                className="cursor-pointer p-4"
+                onClick={() => navigate(`/practice-records/${record.id}`)}
+              >
+                <CardHeader>
+                  <CardTitle>
+                    {record.user?.username} {record.practice_date}
+                  </CardTitle>
+                </CardHeader>
 
+                <CardContent>
+                  <p>
+                    風向: {record.wind_direction ?? "-"}, 風速:
+                    {record.min_wind_speed ?? "-"}~
+                    {record.max_wind_speed ?? "-"} m/s, 気温:
+                    {record.temperature ?? "-"}℃
+                  </p>
 
-              <CardContent>
-                <p>風向: {record.wind_direction ?? "-" }, 風速:
-                  {record.min_wind_speed ?? "-"}~{record.max_wind_speed ?? "-"}{" "}
-                  m/s, 気温:
-                  {record.temperature ?? "-"}℃</p>
-
-                <p>{record.reflection}</p>
-              </CardContent>
-            </Card>
+                  <p>{record.reflection}</p>
+                </CardContent>
+              </Card>
             </li>
           ))}
         </ul>

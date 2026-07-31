@@ -1,4 +1,4 @@
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { api } from "@/lib/axios";
@@ -37,14 +37,22 @@ export default function RecordDetail() {
       <div className="m-4">
         {error && <p>{error}</p>}
         <Card className="p-2">
-          <p>{record?.user.username} {record?.practice_date}</p>
+          <p>
+            {record?.user.username} {record?.practice_date}
+          </p>
           <p>{record?.reflection}</p>
           <p></p>
-          <Button className="w-15" onClick={(handleDelete)} >削除</Button>
-          <Button className="w-15" onClick={() => navigate(`/Practice-records/${id}/edit`)} >編集</Button>
+          <Button className="w-15" onClick={handleDelete}>
+            削除
+          </Button>
+          <Button
+            className="w-15"
+            onClick={() => navigate(`/Practice-records/${id}/edit`)}
+          >
+            編集
+          </Button>
         </Card>
-        
-      </div>    
+      </div>
     </>
   );
 }

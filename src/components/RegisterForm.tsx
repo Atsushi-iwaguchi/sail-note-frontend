@@ -45,9 +45,9 @@ export function RegisterForm({
     setErrors([]);
 
     try {
-        const response = await api.post("/auth/register", {
-            user: data
-        });
+      const response = await api.post("/auth/register", {
+        user: data,
+      });
       login(response.data.user, response.data.token);
       navigate("/dashboard");
     } catch (error) {

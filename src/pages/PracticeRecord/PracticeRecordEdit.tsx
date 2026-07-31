@@ -1,14 +1,14 @@
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import { api } from "@/lib/axios";
 import type { PracticeRecordCreateRequest } from "@/types";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import PracticeRecordForm from "./PracticeRecordForm";
+import PracticeRecordForm from "../../components/PracticeRecord/PracticeRecordForm";
 
 export default function PracticeRecordNew() {
   const { id } = useParams();
-  const { register, handleSubmit, watch, reset } =
+  const { register, handleSubmit, watch, reset, setValue } =
     useForm<PracticeRecordCreateRequest>();
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -38,6 +38,7 @@ export default function PracticeRecordNew() {
         handleSubmit={handleSubmit}
         onSubmit={onSubmit}
         watch={watch}
+        setValue={setValue}
         error={error}
       />
     </>

@@ -1,10 +1,10 @@
-import Header from "@/components/header";
-import { ChartRadialShape } from "./Graphs/piChart";
+import Header from "@/components/Header";
+import { ChartRadialShape } from "../../components/MonthlyGoal/Graphs/piChart";
 import { useEffect, useState } from "react";
 import { api } from "@/lib/axios";
 import type { Monthly_goals } from "@/types";
-import { AchievementChart } from "./Graphs/linearChart";
-import GoalsIndex from "./goalsIndex";
+import { AchievementChart } from "../../components/MonthlyGoal/Graphs/linearChart";
+import GoalsIndex from "../../components/MonthlyGoal/GoalsIndex";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -37,9 +37,15 @@ export default function MonthlyGoals() {
       <div className="p-5">
         {error && <p>{error}</p>}
         <ul className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <li><ChartRadialShape goals={goals} /></li>
-          <li><AchievementChart goals={goals} /></li>
-          <li className="lg:col-span-2"><GoalsIndex goals={goals} /></li>
+          <li>
+            <ChartRadialShape goals={goals} />
+          </li>
+          <li>
+            <AchievementChart goals={goals} />
+          </li>
+          <li className="lg:col-span-2">
+            <GoalsIndex goals={goals} />
+          </li>
         </ul>
       </div>
     </>
