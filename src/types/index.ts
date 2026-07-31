@@ -54,6 +54,9 @@ export type PracticeRecordCreateRequest = {
 
   content?: string;
   reflection?: string;
+
+  weather: string
+  temperature: number
 };
 
 export type Tournament = {

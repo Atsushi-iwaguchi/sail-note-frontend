@@ -1,4 +1,4 @@
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import {
   Table,
   TableBody,
@@ -64,10 +64,19 @@ export default function TournamentDetail() {
           </TableHeader>
           <TableBody>
             {entries.map((entry) => (
-              <TableRow key={entry.id} onClick={() => navigate(`/tournaments/${id}/tournament-entries/${entry.user_id}`)}>
+              <TableRow
+                key={entry.id}
+                onClick={() =>
+                  navigate(
+                    `/tournaments/${id}/tournament-entries/${entry.user_id}`,
+                  )
+                }
+              >
                 <TableCell className="font-medium">aaa</TableCell>
                 <TableCell>2-2-2-2-2</TableCell>
-                <TableCell className="text-right">{entry.overall_ranking}</TableCell>
+                <TableCell className="text-right">
+                  {entry.overall_ranking}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

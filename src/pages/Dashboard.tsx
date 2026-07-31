@@ -1,4 +1,4 @@
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -13,12 +13,12 @@ export default function Dashboard() {
     <>
       <Header />
       <div className="p-5">
-        <ul className="flex gap-4 flex-wrap justify-center">
+        <ul className="flex flex-wrap justify-center gap-4 list-none">
           {MenuItems.map((item) => (
             <li key={item.path}>
               <Button
                 variant="outline"
-                className="w-48 h-18"
+                className="w-48 h-16 cursor-pointer"
                 onClick={() => navigate(item.path)}
               >
                 {item.label}

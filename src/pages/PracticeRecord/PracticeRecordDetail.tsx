@@ -1,8 +1,15 @@
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { api } from "@/lib/axios";
 import type { PracticeRecord } from "@/types";
+import { Pencil, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -34,17 +41,40 @@ export default function RecordDetail() {
   return (
     <>
       <Header />
-      <div className="m-4">
-        {error && <p>{error}</p>}
-        <Card className="p-2">
-          <p>{record?.user.username} {record?.practice_date}</p>
-          <p>{record?.reflection}</p>
-          <p></p>
-          <Button className="w-15" onClick={(handleDelete)} >削除</Button>
-          <Button className="w-15" onClick={() => navigate(`/Practice-records/${id}/edit`)} >編集</Button>
+      <div className="p-4 sm:p-10">
+        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+
+        <Card className="p-4 sm:p-6">
+          <CardHeader className="px-0 pt-0">
+            <CardTitle className="text-base sm:text-lg">
+              {record?.user.username} {record?.practice_date}
+            </CardTitle>
+          </CardHeader>
+
+          <CardContent className="flex flex-col gap-4 px-0">
+            <p className="whitespace-pre-wrap text-sm">{record?.reflection}</p>
+          </CardContent>
+          <div className="flex justify-end gap-1">
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="編集"
+              onClick={() => navigate(`/practice-records/${id}/edit`)}
+            >
+              <Pencil className="size-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="削除"
+              onClick={handleDelete}
+              className="text-red-600 hover:bg-red-50 hover:text-red-700"
+            >
+              <Trash2 className="size-4" />
+            </Button>
+          </div>
         </Card>
-        
-      </div>    
+      </div>
     </>
   );
 }

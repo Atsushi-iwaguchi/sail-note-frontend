@@ -1,18 +1,19 @@
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import { api } from "@/lib/axios";
 import type { PracticeRecordCreateRequest } from "@/types";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import PracticeRecordForm from "./PracticeRecordForm";
+import PracticeRecordForm from "../../components/PracticeRecord/PracticeRecordForm";
 
 export default function PracticeRecordNew() {
-  const { register, handleSubmit } = useForm<PracticeRecordCreateRequest>({
-    defaultValues: {
-      //今日の日付を自動で取得する
-      practice_date: new Date().toISOString().split("T")[0],
-    },
-  });
+  const { register, handleSubmit, watch, setValue } =
+    useForm<PracticeRecordCreateRequest>({
+      defaultValues: {
+        //今日の日付を自動で取得する
+        practice_date: new Date().toISOString().split("T")[0],
+      },
+    });
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -28,10 +29,12 @@ export default function PracticeRecordNew() {
   return (
     <>
       <Header />
-      <PracticeRecordForm 
+      <PracticeRecordForm
         register={register}
         handleSubmit={handleSubmit}
         onSubmit={onSubmit}
+        watch={watch}
+        setValue={setValue}
         error={error}
       />
     </>

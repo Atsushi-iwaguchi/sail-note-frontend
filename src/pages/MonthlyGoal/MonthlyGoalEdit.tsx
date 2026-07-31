@@ -1,10 +1,10 @@
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import { api } from "@/lib/axios";
 import type { MonthlyGoalsRequest } from "@/types";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import MonthlyGoalsForm from "./MonthlyGoalForm";
+import MonthlyGoalsForm from "../../components/MonthlyGoal/MonthlyGoalForm";
 
 export default function TournamentNew() {
   const { id } = useParams();
