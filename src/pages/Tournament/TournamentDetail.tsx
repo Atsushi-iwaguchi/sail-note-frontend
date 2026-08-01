@@ -70,17 +70,14 @@ export default function TournamentDetail() {
               <TableRow
                 key={entry.id}
                 onClick={() =>
-                  navigate(
-                    `/tournaments/${id}/tournament-entries/${entry.id}`,
-                  )
+                  navigate(`/tournaments/${id}/tournament-entries/${entry.id}`)
                 }
               >
-                <TableCell className="font-medium">aaa</TableCell>
+                <TableCell className="font-medium">
+                  {entry.user.username}
+                </TableCell>
                 <TableCell>
-                  {entry.race_results
-                    .sort((a, b) => a.race_number - b.race_number)
-                    .map((result) => result.score)
-                    .join("-")}
+                  {entry.race_results.map((result) => result.score).join("-")}
                 </TableCell>
                 <TableCell className="text-right">
                   {entry.overall_ranking}

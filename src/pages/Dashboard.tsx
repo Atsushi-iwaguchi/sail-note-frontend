@@ -12,7 +12,7 @@ export default function Dashboard() {
   return (
     <>
       <Header />
-      <div className="p-5">
+      <div className="p-4">
         <ul className="flex flex-wrap justify-center gap-4 list-none">
           {MenuItems.map((item) => (
             <li key={item.path}>

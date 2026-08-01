@@ -84,6 +84,10 @@ export type Tournament_Entries = {
   overall_ranking: number;
   reflection: string | null;
   race_results: RaceResult[];
+  user: {
+    id: number;
+    username: string;
+  };
 };
 
 export type RaceResult = {
@@ -95,14 +99,14 @@ export type RaceResult = {
 export type RaceResultRequest = {
   race_results: {
     race_number: number;
-    score: number;
+    score?: number;
   }[];
 };
 
 export type TournamentEntryRequest = {
   overall_ranking: number;
   reflection?: string;
-}
+};
 
 export type Monthly_goals = {
   id: number;
