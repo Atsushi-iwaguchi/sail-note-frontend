@@ -25,9 +25,6 @@
 - 月間目標の設定・達成率の推移表示
 
 
-
-## 🛠 使用技術
-
 ### フロントエンド
 - React 19
 - TypeScript
@@ -42,12 +39,18 @@
 - GitHub Actions（CI/CD）
 
 
-## 🗄 設計資料
+## 設計資料
 
 - [ER図]
+  <img width="1728" height="1104" alt="DatbaseSettings" src="https://github.com/user-attachments/assets/51a92f8a-842f-4c5b-a47d-5f6148262d3a" />
+
 - [DB設計書（Notion）]
+  https://app.notion.com/p/388f9a11acb3807fabf0f09442f7fd06?source=copy_link
 - [API設計（OpenAPI）]
+  https://gist.github.com/Atsushi-iwaguchi/743ad8a1ade213c17941e37964e3d500
 - [ワイヤーフレーム（Figma）]
+  <img width="4538" height="3144" alt="Sailor Note" src="https://github.com/user-attachments/assets/20b856eb-3885-4a4b-8f60-cf179c6f5780" />
+
 
 ## セットアップ手順
 
