@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -37,6 +38,7 @@ export default function TournamentDetail() {
       try {
         const response = await api.get(`/tournaments/${id}/tournament_entries`);
         setEntries(response.data);
+        console.log(response.data);
       } catch {
         setError("取得に失敗しました");
       }
@@ -54,6 +56,7 @@ export default function TournamentDetail() {
         <p>開催日{tournament?.start_date}</p>
         <p>参加艇数 {tournament?.boats_count}艇</p>
         <p>レース数 {tournament?.race_count}</p>
+
         <Table>
           <TableHeader>
             <TableRow>
@@ -67,13 +70,15 @@ export default function TournamentDetail() {
               <TableRow
                 key={entry.id}
                 onClick={() =>
-                  navigate(
-                    `/tournaments/${id}/tournament-entries/${entry.user_id}`,
-                  )
+                  navigate(`/tournaments/${id}/tournament-entries/${entry.id}`)
                 }
               >
-                <TableCell className="font-medium">aaa</TableCell>
-                <TableCell>2-2-2-2-2</TableCell>
+                <TableCell className="font-medium">
+                  {entry.user.username}
+                </TableCell>
+                <TableCell>
+                  {entry.race_results.map((result) => result.score).join("-")}
+                </TableCell>
                 <TableCell className="text-right">
                   {entry.overall_ranking}
                 </TableCell>
@@ -81,6 +86,11 @@ export default function TournamentDetail() {
             ))}
           </TableBody>
         </Table>
+        <Button
+          onClick={() => navigate(`/tournaments/${id}/tournament-entries/new`)}
+        >
+          add
+        </Button>
       </div>
     </>
   );

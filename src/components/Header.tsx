@@ -12,7 +12,7 @@ export default function Header() {
     navigate("/login");
   };
   return (
-    <header className="sticky top-0 z-10 flex items-center justify-between bg-gray-200 px-4 py-2 shadow-sm">
+    <header className="sticky top-0 z-10 mb-4 flex items-center justify-between bg-gray-200 px-4 py-2 shadow-sm">
       <Link
         to="/dashboard"
         className="text-lg font-bold tracking-tight text-gray-800 hover:text-gray-600 transition-colors"

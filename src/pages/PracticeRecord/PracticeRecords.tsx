@@ -26,6 +26,7 @@ export default function PracticeRecords() {
   return (
     <>
       <Header />
+      <h1 className="mb-4 text-xl font-bold sm:text-2xl">練習記録一覧</h1>
       <div className="p-4 sm:p-5">
         <div className="mb-4">
           <Button onClick={() => navigate("/practice-records/new")}>
@@ -43,10 +44,13 @@ export default function PracticeRecords() {
                 className="cursor-pointer p-4 hover:bg-accent transition-colors"
                 onClick={() => navigate(`/practice-records/${record.id}`)}
               >
-                <CardHeader>
+                <CardHeader className="flex flex-row items-center justify-between gap-2">
                   <CardTitle className="text-base sm:text-lg">
-                    {record.user?.username} {record.practice_date}
+                    {record.user?.username}
                   </CardTitle>
+                  <span className="shrink-0 text-sm text-muted-foreground">
+                    {record.practice_date}
+                  </span>
                 </CardHeader>
 
                 <CardContent className="flex flex-col gap-1">

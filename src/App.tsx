@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PracticeRecords from "./pages/PracticeRecord/PracticeRecords";
@@ -14,6 +14,10 @@ import TournamentNew from "./pages/Tournament/TournamentNew";
 import MonthlyGoalsNew from "./pages/MonthlyGoal/MonthlyGoalNew";
 import MonthlyGoalEdit from "./pages/MonthlyGoal/MonthlyGoalEdit";
 import PrivateRoute from "./components/RouteGuard";
+import TournamentEntryNew from "./pages/Tournament/TournametEntries/TounamentEntryNew";
+import TournamentEntry from "./pages/Tournament/TournametEntries/TournamentEntry";
+import RaceResultNew from "./pages/Tournament/TournametEntries/RaceResultNew";
+import TournamentEntryEdit from "./pages/Tournament/TournametEntries/TournamentEntryEdit";
 
 function App() {
   return (
@@ -23,6 +27,7 @@ function App() {
         <Route path="/register" element={<Register />} />
 
         <Route element={<PrivateRoute />}>
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/practice-records" element={<PracticeRecords />} />
           <Route
@@ -36,7 +41,11 @@ function App() {
           <Route path="/practice-records/new" element={<PracticeRecordNew />} />
           <Route path="/tournaments" element={<Tournaments />} />
           <Route path="/tournaments/new" element={<TournamentNew />} />
-          <Route path="/tournaments/:id" element={<TournamentDetail />} />
+          <Route path="/tournaments/:id/tournament-entries" element={<TournamentDetail />} />
+          <Route path="/tournaments/:id/tournament-entries/:entry_id" element={<TournamentEntry />} />
+          <Route path="/tournaments/:id/tournament-entries/:entry_id/race-result/new" element={<RaceResultNew />} />
+          <Route path="/tournaments/:id/tournament-entries/new" element={<TournamentEntryNew />} />
+          <Route path="/tournaments/:id/tournament-entries/:entry_id/edit" element={<TournamentEntryEdit />} />
           <Route path="/Monthly-goals" element={<MonthlyGoals />} />
           <Route path="/Monthly-goals/new" element={<MonthlyGoalsNew />} />
           <Route path="/Monthly-goals/:id/edit" element={<MonthlyGoalEdit />} />

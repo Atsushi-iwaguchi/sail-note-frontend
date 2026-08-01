@@ -55,8 +55,8 @@ export type PracticeRecordCreateRequest = {
   content?: string;
   reflection?: string;
 
-  weather: string
-  temperature: number
+  weather: string;
+  temperature: number;
 };
 
 export type Tournament = {
@@ -83,6 +83,29 @@ export type Tournament_Entries = {
   user_id: number;
   overall_ranking: number;
   reflection: string | null;
+  race_results: RaceResult[];
+  user: {
+    id: number;
+    username: string;
+  };
+};
+
+export type RaceResult = {
+  id: number;
+  race_number: number;
+  score: number;
+};
+
+export type RaceResultRequest = {
+  race_results: {
+    race_number: number;
+    score?: number;
+  }[];
+};
+
+export type TournamentEntryRequest = {
+  overall_ranking: number;
+  reflection?: string;
 };
 
 export type Monthly_goals = {
@@ -97,4 +120,4 @@ export type MonthlyGoalsRequest = {
   goal_date: string;
   content: string;
   achievement_rate?: number;
-}
+};
