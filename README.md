@@ -1,4 +1,4 @@
-# SailLog Frontend
+# SailNote Frontend
 
 ヨット部向け練習記録管理アプリ「Sail Note」のフロントエンドリポジトリである。
 
