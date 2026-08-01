@@ -33,27 +33,35 @@ export default function Tournaments() {
   return (
     <>
       <Header />
-      <div>
-        <h1>過去の大会一覧</h1>
-        {error && <p>{error}</p>}
-        <ul>
+      <div className="p-4 sm:p-10">
+        <h1 className="mb-4 text-xl font-bold sm:text-2xl">過去の大会一覧</h1>
+
+        {error && <p className="mb-2 text-sm text-red-500">{error}</p>}
+
+        <ul className="mb-4 flex list-none flex-col gap-3">
           {tournaments.map((tournament) => (
-            <li className="p-2 mb-2" key={tournament.id}>
+            <li key={tournament.id}>
               <Card
-                className="cursor-pointer p-4"
-                onClick={() => navigate(`/tournaments/${tournament.id}/tournament-entries`)}
+                className="cursor-pointer p-4 transition-colors hover:bg-accent"
+                onClick={() =>
+                  navigate(`/tournaments/${tournament.id}/tournament-entries`)
+                }
               >
                 <CardHeader>
-                  <CardTitle>
-                    {tournament.name} 日程 {tournament.start_date.slice(0, 4)}年
-                    {formatMonthDay(tournament.start_date)}-
-                    {formatMonthDay(tournament.end_date)}
+                  <CardTitle className="text-base sm:text-lg">
+                    {tournament.name}
                   </CardTitle>
+                  <p className="text-sm text-muted-foreground">
+                    {tournament.start_date.slice(0, 4)}年{" "}
+                    {formatMonthDay(tournament.start_date)} 〜{" "}
+                    {formatMonthDay(tournament.end_date)}
+                  </p>
                 </CardHeader>
               </Card>
             </li>
           ))}
         </ul>
+
         <Button onClick={() => navigate("/tournaments/new")}>新規作成</Button>
       </div>
     </>
