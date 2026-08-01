@@ -17,6 +17,7 @@ import PrivateRoute from "./components/RouteGuard";
 import TournamentEntryNew from "./pages/Tournament/TournametEntries/TounamentEntryNew";
 import TournamentEntry from "./pages/Tournament/TournametEntries/TournamentEntry";
 import RaceResultNew from "./pages/Tournament/TournametEntries/RaceResultNew";
+import TournamentEntryEdit from "./pages/Tournament/TournametEntries/TournamentEntryEdit";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/tournaments/:id/tournament-entries/:entry_id" element={<TournamentEntry />} />
           <Route path="/tournaments/:id/tournament-entries/:entry_id/race-result/new" element={<RaceResultNew />} />
           <Route path="/tournaments/:id/tournament-entries/new" element={<TournamentEntryNew />} />
+          <Route path="/tournaments/:id/tournament-entries/:entry_id/edit" element={<TournamentEntryEdit />} />
           <Route path="/Monthly-goals" element={<MonthlyGoals />} />
           <Route path="/Monthly-goals/new" element={<MonthlyGoalsNew />} />
           <Route path="/Monthly-goals/:id/edit" element={<MonthlyGoalEdit />} />

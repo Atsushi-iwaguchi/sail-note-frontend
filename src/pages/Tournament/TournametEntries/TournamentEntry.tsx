@@ -70,15 +70,25 @@ export default function TournamentEntry() {
 
           {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
 
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="削除"
-            onClick={handleDelete}
-            className="text-red-600 hover:bg-red-50 hover:text-red-700"
-          >
-            <Trash2 className="size-4" />
-          </Button>
+          <div className="flex justify-end gap-1">
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="編集"
+              onClick={() => navigate(`/tournaments/${id}/tournament-entries/${entry_id}/edit`)}
+            >
+              <Pencil className="size-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="削除"
+              onClick={handleDelete}
+              className="text-red-600 hover:bg-red-50 hover:text-red-700"
+            >
+              <Trash2 className="size-4" />
+            </Button>
+          </div>
         </Card>
       </div>
     </>
