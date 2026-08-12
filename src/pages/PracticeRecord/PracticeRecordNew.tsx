@@ -20,12 +20,28 @@ export default function PracticeRecordNew() {
   const onSubmit = async (data: PracticeRecordCreateRequest) => {
     setError(null);
     try {
-      await api.post("/practice_records", { practice_record: data });
+      const formData = new FormData();
+
+      Object.entries(data).forEach(([key, value]) => {
+        if (key === "images") {
+          const files = value as File[] | undefined;
+          files?.forEach((file) => {
+            formData.append("practice_record[images][]", file);
+          });
+        } else if (value !== undefined && value !== null) {
+          formData.append(`practice_record[${key}]`, String(value));
+        }
+      });
+
+      await api.post("/practice_records", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       navigate("/practice-records");
     } catch {
       setError("練習記録の作成に失敗しました");
     }
   };
+
   return (
     <>
       <Header />

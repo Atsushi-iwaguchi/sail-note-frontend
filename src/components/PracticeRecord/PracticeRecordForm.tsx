@@ -12,7 +12,7 @@ import {
   type UseFormWatch,
 } from "react-hook-form";
 import TuningTable from "./TunigTable";
-import { Textarea } from "@/components/ui/textarea"
+import { Textarea } from "@/components/ui/textarea";
 import { Label } from "../ui/label";
 
 type Props = {
@@ -169,6 +169,22 @@ export default function PracticeRecordForm({
                 id="reflection"
                 className="w-full min-h-32"
                 {...register("reflection")}
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="images">写真</Label>
+              <Input
+                id="images"
+                type="file"
+                accept="image/*"
+                multiple
+                onChange={(e) => {
+                  const files = e.target.files;
+                  if (files) {
+                    setValue("images", Array.from(files));
+                  }
+                }}
               />
             </div>
 

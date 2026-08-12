@@ -8,6 +8,10 @@ export type User = {
   role: Role;
 };
 
+export type PracticeRecordImage = {
+  url: string;
+};
+
 export type PracticeRecord = {
   id: number;
   user: User;
@@ -32,6 +36,7 @@ export type PracticeRecord = {
 
   weather: string | null;
   temperature: number | null;
+  images: PracticeRecordImage[];
 };
 
 export type PracticeRecordCreateRequest = {
@@ -57,6 +62,7 @@ export type PracticeRecordCreateRequest = {
 
   weather: string;
   temperature: number;
+  images?: File[];
 };
 
 export type Tournament = {

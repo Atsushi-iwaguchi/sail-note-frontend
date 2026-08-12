@@ -1,11 +1,6 @@
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { api } from "@/lib/axios";
 import type { PracticeRecord } from "@/types";
 import { Pencil, Trash2 } from "lucide-react";
@@ -52,6 +47,18 @@ export default function RecordDetail() {
 
           <CardContent className="flex flex-col gap-4 px-0">
             <p className="whitespace-pre-wrap text-sm">{record?.reflection}</p>
+            {record && record.images.length > 0 && (
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {record.images.map((image) => (
+                  <img
+                    key={image.url}
+                    src={image.url}
+                    alt="練習写真"
+                    className="w-full rounded-lg object-cover"
+                  />
+                ))}
+              </div>
+            )}
           </CardContent>
           <div className="flex justify-end gap-1">
             <Button
