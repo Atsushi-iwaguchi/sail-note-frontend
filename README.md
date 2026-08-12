@@ -1,12 +1,12 @@
-# SailLog Frontend
+# SailNote Frontend
 
-ヨット部向け練習記録管理アプリ「Sail Note」のフロントエンドリポジトリです。
+ヨット部向け練習記録管理アプリ「Sail Note」のフロントエンドリポジトリである。
 
 ## 概要
 
-ヨット部の練習記録・大会成績・月間目標を一元管理し、部員間で情報を共有できるWebアプリケーションです。
+ヨット部の練習記録・大会成績・月間目標を一元管理し、部員間で情報を共有できるWebアプリケーションである。
 
-現役ヨット部員時代、練習内容や船のセッティング、反省点が各自バラバラに管理されており、過去の記録を振り返りにくいという理由から開発しました。
+現役ヨット部員時代、練習内容や船のセッティング、反省点が各自バラバラに管理されており、過去の記録を振り返りにくいという理由から開発した。
 
 **バックエンドリポジトリ**: [https://github.com/Atsushi-iwaguchi/sail-note-backend]
 
@@ -15,11 +15,15 @@
 - フロントエンド: https://xxxxx.vercel.app
 - バックエンドAPI: https://xxxxx.railway.app
 
-## 📸 スクリーンショット
 
-（主要画面のスクリーンショットを貼る）
+## 主な技術
+- ユーザー登録・ログイン（JWT認証）
+- 練習記録のCRUD（風向・風速・潮汐・船のセッティング等を記録）
+- 天気APIとの連携（練習日の天気を自動取得、Open-Meteo APIを利用）
+- 練習記録への絞り込み検索（風向・風速・日付・ユーザー名）
+- 大会記録・レース結果の管理
+- 月間目標の設定・達成率の推移表示
 
-## 🛠 使用技術
 
 ### フロントエンド
 - React 19
@@ -34,24 +38,21 @@
 - Vercel（デプロイ）
 - GitHub Actions（CI/CD）
 
-## ✨ 主な機能
 
-- ユーザー登録・ログイン（JWT認証）
-- 練習記録のCRUD（風向・風速・潮汐・船のセッティング等を記録）
-- 天気APIとの連携（練習日の天気を自動取得）
-- 練習記録への絞り込み検索（風向・風速・日付・ユーザー名）
-- コメント機能
-- 大会記録・レース結果の管理
-- 月間目標の設定・達成率の推移表示
-
-## 🗄 設計資料
+## 設計資料
 
 - [ER図]
-- [DB設計書（Notion）]
-- [API設計（OpenAPI）]
-- [ワイヤーフレーム（Figma）]
+  <img width="1728" height="1104" alt="DatbaseSettings" src="https://github.com/user-attachments/assets/51a92f8a-842f-4c5b-a47d-5f6148262d3a" />
 
-## 🚀 セットアップ手順
+- [DB設計書（Notion）]
+  https://app.notion.com/p/388f9a11acb3807fabf0f09442f7fd06?source=copy_link
+- [API設計（OpenAPI）]
+  https://gist.github.com/Atsushi-iwaguchi/743ad8a1ade213c17941e37964e3d500
+- [ワイヤーフレーム（Figma）]
+  <img width="4538" height="3144" alt="Sailor Note" src="https://github.com/user-attachments/assets/20b856eb-3885-4a4b-8f60-cf179c6f5780" />
+
+
+## セットアップ手順
 
 ### 必要環境
 - Node.js 20以上
