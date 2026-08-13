@@ -33,54 +33,58 @@ export default function RecordDetail() {
   }, [id]);
 
   return (
-    <>
+    <div className="min-h-screen bg-[#f4f9ff]">
       <Header />
-      <div className="p-4 sm:p-10">
-        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+      <main className="mx-auto max-w-5xl px-5 pb-32">
+        <div className="p-4 sm:p-10">
+          {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
 
-        <Card className="p-4 sm:p-6">
-          <CardHeader className="px-0 pt-0">
-            <CardTitle className="text-base sm:text-lg">
-              {record?.user.username} {record?.practice_date}
-            </CardTitle>
-          </CardHeader>
+          <Card className="p-4 sm:p-6">
+            <CardHeader className="px-0 pt-0">
+              <CardTitle className="text-base sm:text-lg">
+                {record?.user.username} {record?.practice_date}
+              </CardTitle>
+            </CardHeader>
 
-          <CardContent className="flex flex-col gap-4 px-0">
-            <p className="whitespace-pre-wrap text-sm">{record?.reflection}</p>
-            {record && record.images.length > 0 && (
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {record.images.map((image) => (
-                  <img
-                    key={image.url}
-                    src={image.url}
-                    alt="練習写真"
-                    className="w-full rounded-lg object-cover"
-                  />
-                ))}
-              </div>
-            )}
-          </CardContent>
-          <div className="flex justify-end gap-1">
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="編集"
-              onClick={() => navigate(`/practice-records/${id}/edit`)}
-            >
-              <Pencil className="size-4" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="削除"
-              onClick={handleDelete}
-              className="text-red-600 hover:bg-red-50 hover:text-red-700"
-            >
-              <Trash2 className="size-4" />
-            </Button>
-          </div>
-        </Card>
-      </div>
-    </>
+            <CardContent className="flex flex-col gap-4 px-0">
+              <p className="whitespace-pre-wrap text-sm">
+                {record?.reflection}
+              </p>
+              {record && record.images.length > 0 && (
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  {record.images.map((image) => (
+                    <img
+                      key={image.url}
+                      src={image.url}
+                      alt="練習写真"
+                      className="w-full rounded-lg object-cover"
+                    />
+                  ))}
+                </div>
+              )}
+            </CardContent>
+            <div className="flex justify-end gap-1">
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="編集"
+                onClick={() => navigate(`/practice-records/${id}/edit`)}
+              >
+                <Pencil className="size-4" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="削除"
+                onClick={handleDelete}
+                className="text-red-600 hover:bg-red-50 hover:text-red-700"
+              >
+                <Trash2 className="size-4" />
+              </Button>
+            </div>
+          </Card>
+        </div>
+      </main>
+    </div>
   );
 }

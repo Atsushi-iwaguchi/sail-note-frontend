@@ -53,7 +53,7 @@ export default function RaceResultNew() {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-[#f4f9ff]">
       <Header />
 
       <div className="p-4 sm:p-10">
@@ -85,6 +85,6 @@ export default function RaceResultNew() {
           <Button type="submit">保存</Button>
         </form>
       </div>
-    </>
+    </div>
   );
 }

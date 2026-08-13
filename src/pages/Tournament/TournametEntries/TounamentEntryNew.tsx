@@ -24,7 +24,7 @@ export default function TournamentEntryNew() {
     }
   };
   return (
-    <>
+    <div className="min-h-screen bg-[#f4f9ff]">
       <Header />
       <TournamentEntryForm
         register={register}
@@ -32,6 +32,6 @@ export default function TournamentEntryNew() {
         onSubmit={onSubmit}
         error={error}
       />
-    </>
+    </div>
   );
 }

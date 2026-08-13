@@ -24,7 +24,7 @@ export default function TournamentNew() {
     }
   };
   return (
-    <>
+    <div className="min-h-screen bg-[#f4f9ff]">
       <Header />
 
       <div>
@@ -67,6 +67,6 @@ export default function TournamentNew() {
           </form>
         </Card>
       </div>
-    </>
+    </div>
   );
 }

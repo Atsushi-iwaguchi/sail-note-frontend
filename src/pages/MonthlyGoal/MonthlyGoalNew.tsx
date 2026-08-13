@@ -22,7 +22,7 @@ export default function TournamentNew() {
     }
   };
   return (
-    <>
+    <div className="min-h-screen bg-[#f4f9ff]">
       <Header />
 
       <MonthlyGoalsForm
@@ -31,6 +31,6 @@ export default function TournamentNew() {
         onSubmit={onSubmit}
         error={error}
       />
-    </>
+    </div>
   );
 }

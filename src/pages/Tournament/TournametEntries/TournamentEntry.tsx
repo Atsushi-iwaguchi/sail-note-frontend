@@ -37,7 +37,7 @@ export default function TournamentEntry() {
   const hasRaceResults = (entry?.race_results.length ?? 0) > 0;
 
   return (
-    <>
+    <div className="min-h-screen bg-[#f4f9ff]">
       <Header />
       <div className="p-4 sm:p-10">
         <Card className="p-4 sm:p-6">
@@ -91,6 +91,6 @@ export default function TournamentEntry() {
           </div>
         </Card>
       </div>
-    </>
+    </div>
   );
 }

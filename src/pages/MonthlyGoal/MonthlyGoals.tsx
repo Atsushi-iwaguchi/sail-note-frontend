@@ -27,7 +27,7 @@ export default function MonthlyGoals() {
     fetchGoals();
   }, []);
   return (
-    <>
+    <div className="min-h-screen bg-[#f4f9ff]">
       <Header />
 
       <div className="m-2 flex items-center justify-between p-2">
@@ -48,6 +48,6 @@ export default function MonthlyGoals() {
           </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 }

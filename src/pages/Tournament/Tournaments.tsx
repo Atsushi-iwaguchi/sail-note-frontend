@@ -31,7 +31,7 @@ export default function Tournaments() {
   }, []);
 
   return (
-    <>
+    <div className="min-h-screen bg-[#f4f9ff]">
       <Header />
       <div className="p-4 sm:p-10">
         <h1 className="mb-4 text-xl font-bold sm:text-2xl">過去の大会一覧</h1>
@@ -64,6 +64,6 @@ export default function Tournaments() {
 
         <Button onClick={() => navigate("/tournaments/new")}>新規作成</Button>
       </div>
-    </>
+    </div>
   );
 }
