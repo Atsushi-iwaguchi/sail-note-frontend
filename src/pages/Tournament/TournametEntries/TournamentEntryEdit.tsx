@@ -36,7 +36,7 @@ export default function TournamentEntryEdit() {
     }
   };
   return (
-    <>
+    <div className="min-h-screen">
       <Header />
       <TournamentEntryForm
         register={register}
@@ -44,6 +44,6 @@ export default function TournamentEntryEdit() {
         onSubmit={onSubmit}
         error={error}
       />
-    </>
+    </div>
   );
 }

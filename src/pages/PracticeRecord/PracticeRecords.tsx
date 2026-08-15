@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { api } from "@/lib/axios";
 import type { PracticeRecord } from "@/types";
+import { ClipboardPen, Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -24,17 +25,33 @@ export default function PracticeRecords() {
   }, []);
 
   return (
-    <>
+    <div className="min-h-screen bg-[#f4f9ff]">
       <Header />
-      <h1 className="mb-4 text-xl font-bold sm:text-2xl">練習記録一覧</h1>
-      <div className="p-4 sm:p-5">
-        <div className="mb-4">
-          <Button onClick={() => navigate("/practice-records/new")}>
+
+      <main className="mx-auto max-w-5xl px-5 pb-32">
+        <section className="pt-10 sm:pt-14">
+          <div className="flex items-center gap-3">
+            <ClipboardPen className="size-8 text-[#064b87]" />
+
+            <h1 className="text-3xl font-bold text-[#064b87] sm:text-4xl">
+              練習記録一覧
+            </h1>
+          </div>
+
+          <p className="mt-3 text-slate-600">これまでの練習記録を確認</p>
+        </section>
+
+        <div className="flex items-center justify-between py-10 sm:py-14">
+          <Button
+            className="bg-[#064b87] hover:bg-[#053d6e]"
+            onClick={() => navigate("/practice-records/new")}
+          >
+            <Plus />
             新規作成
           </Button>
+          <p className="mb-2 text-sm text-muted-foreground">絞り込み</p>
         </div>
 
-        <p className="mb-2 text-sm text-muted-foreground">絞り込み</p>
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 
         <ul className="list-none flex flex-col gap-3">
@@ -69,7 +86,7 @@ export default function PracticeRecords() {
             </li>
           ))}
         </ul>
-      </div>
-    </>
+      </main>
+    </div>
   );
 }

@@ -27,12 +27,12 @@ export default function MonthlyGoals() {
     fetchGoals();
   }, []);
   return (
-    <>
+    <div className="min-h-screen bg-[#f4f9ff]">
       <Header />
 
       <div className="m-2 flex items-center justify-between p-2">
         <h1 className="text-3xl font-bold">月間目標</h1>
-        <Button onClick={() => navigate("/monthly-goals/new")}>新規作成</Button>
+        <Button className="bg-[#064b87] hover:bg-[#053d6e]" onClick={() => navigate("/monthly-goals/new")}>新規作成</Button>
       </div>
       <div className="p-5">
         {error && <p>{error}</p>}
@@ -48,6 +48,6 @@ export default function MonthlyGoals() {
           </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 }

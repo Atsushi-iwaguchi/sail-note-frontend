@@ -47,7 +47,7 @@ export default function TournamentDetail() {
   }, [id]);
 
   return (
-    <>
+    <div className="min-h-screen bg-[#f4f9ff]">
       <Header />
 
       <div className="m-4">
@@ -92,6 +92,6 @@ export default function TournamentDetail() {
           add
         </Button>
       </div>
-    </>
+    </div>
   );
 }
