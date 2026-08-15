@@ -53,7 +53,7 @@ export default function RaceResultNew() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f4f9ff]">
+    <div className="min-h-screen ">
       <Header />
 
       <div className="p-4 sm:p-10">

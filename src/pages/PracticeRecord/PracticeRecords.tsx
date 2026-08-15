@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { api } from "@/lib/axios";
 import type { PracticeRecord } from "@/types";
+import { ClipboardPen, Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -28,15 +29,24 @@ export default function PracticeRecords() {
       <Header />
 
       <main className="mx-auto max-w-5xl px-5 pb-32">
-        <section className="flex items-center justify-between py-10 sm:py-14">
-          <div>
-            <h1 className="text-3xl font-bold sm:text-4xl">練習記録一覧</h1>
-            <p>これまでの練習記録を確認</p>
+        <section className="pt-10 sm:pt-14">
+          <div className="flex items-center gap-3">
+            <ClipboardPen className="size-8 text-[#064b87]" />
+
+            <h1 className="text-3xl font-bold text-[#064b87] sm:text-4xl">
+              練習記録一覧
+            </h1>
           </div>
+
+          <p className="mt-3 text-slate-600">これまでの練習記録を確認</p>
         </section>
 
         <div className="flex items-center justify-between py-10 sm:py-14">
-          <Button className="bg-blue-900" onClick={() => navigate("/practice-records/new")}>
+          <Button
+            className="bg-[#064b87] hover:bg-[#053d6e]"
+            onClick={() => navigate("/practice-records/new")}
+          >
+            <Plus />
             新規作成
           </Button>
           <p className="mb-2 text-sm text-muted-foreground">絞り込み</p>

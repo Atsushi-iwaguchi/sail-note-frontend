@@ -36,7 +36,7 @@ export default function TournamentEntryEdit() {
     }
   };
   return (
-    <div className="min-h-screen bg-[#f4f9ff]">
+    <div className="min-h-screen">
       <Header />
       <TournamentEntryForm
         register={register}

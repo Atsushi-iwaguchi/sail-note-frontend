@@ -7,7 +7,7 @@ const MenuItems = [
   {
     path: "/practice-records",
     label: "練習記録",
-    description: "練習内容やコンディションを記録",
+    description: "日々の記録を作成・確認",
     icon: ClipboardPen,
   },
   {
@@ -43,7 +43,6 @@ export default function Dashboard() {
             </p>
           </div>
 
-          <div className="hidden text-7xl sm:block">⛵</div>
         </section>
 
         <div className="flex flex-col gap-6">
@@ -72,7 +71,6 @@ export default function Dashboard() {
                   hover:shadow-md
                 "
               >
-                {/* アイコン */}
                 <div
                   className="
                     flex
@@ -88,7 +86,6 @@ export default function Dashboard() {
                   <Icon className="size-10" />
                 </div>
 
-                {/* テキスト */}
                 <div className="min-w-0 flex-1">
                   <h2 className="text-2xl font-bold text-[#064b87]">
                     {item.label}
@@ -99,7 +96,6 @@ export default function Dashboard() {
                   </p>
                 </div>
 
-                {/* 矢印 */}
                 <ChevronRight
                   className="
                     size-8
@@ -112,11 +108,6 @@ export default function Dashboard() {
           })}
         </div>
       </main>
-
-      {/* 下部の波 */}
-      <div className="pointer-events-none fixed bottom-0 left-0 w-full">
-        <img src="/images/waves.svg" alt="" className="w-full" />
-      </div>
     </div>
   );
 }

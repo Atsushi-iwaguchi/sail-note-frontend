@@ -24,11 +24,11 @@ export default function TournamentNew() {
     }
   };
   return (
-    <div className="min-h-screen bg-[#f4f9ff]">
+    <div className="min-h-screen ">
       <Header />
 
       <div>
-        <Card>
+        <Card className="m-5">
           <form onSubmit={handleSubmit(onSubmit)}>
             <p>
               大会名

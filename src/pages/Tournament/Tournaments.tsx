@@ -62,7 +62,7 @@ export default function Tournaments() {
           ))}
         </ul>
 
-        <Button onClick={() => navigate("/tournaments/new")}>新規作成</Button>
+        <Button className="bg-[#064b87] hover:bg-[#053d6e]" onClick={() => navigate("/tournaments/new")}>新規作成</Button>
       </div>
     </div>
   );
