@@ -2,6 +2,22 @@
 
 ヨット部向け練習記録管理アプリ「Sail Note」のフロントエンドリポジトリである。
 
+アプリURL: https://sailnote-app.com
+
+**ゲストユーザーアカウント情報**
+
+- ゲストユーザー1
+
+Email: sample1@example.com
+
+Password: password123
+
+- ゲストユーザー2
+
+Email: sample2@example.com
+
+Password: password123
+
 ## 概要
 
 ヨット部の練習記録・大会成績・月間目標を一元管理し、部員間で情報を共有できるWebアプリケーションである。
@@ -25,18 +41,20 @@
 - 月間目標の設定・達成率の推移表示
 
 
-### フロントエンド
-- React 19
-- TypeScript
-- Vite
-- TailwindCSS
-- shadcn/ui
-- React Router
-- axios
+## 使用技術
 
-### インフラ・その他
-- Vercel（デプロイ）
-- GitHub Actions（CI/CD）
+| カテゴリー | 技術 |
+| --- | --- |
+| フロントエンド | React 19.2.7 / TypeScript 6.0.2 / Vite 8.1.1 |
+| UI | Tailwind CSS 4.3.3 / shadcn/ui 4.14.1 |
+| バックエンド | Ruby on Rails 8.1.3.1 |
+| データベース | PostgreSQL 1.6.3 |
+| 認証 | jwt 3.2.0 / bcrypt 3.1.22 |
+| 環境構築 | Docker |
+| インフラ | AWS(EC2 / RDS / S3 / Route 53) |
+| CI/CD | Github Actions |
+
+### 技術選定の理由
 
 
 ## 設計資料
