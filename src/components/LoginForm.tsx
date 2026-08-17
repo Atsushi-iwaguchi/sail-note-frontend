@@ -56,6 +56,10 @@ export function LoginForm({
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
+      <div>
+        <h1>Sail Note</h1>
+        <p></p>
+      </div>
       <Card>
         <CardHeader>
           <CardTitle>ログイン</CardTitle>
@@ -92,7 +96,7 @@ export function LoginForm({
                     {error}
                   </p>
                 ))}
-                <Button type="submit">ログイン</Button>
+                <Button type="submit" className="bg-[#064b87] hover:bg-[#053d6e]">ログイン</Button>
                 <FieldDescription className="text-center">
                   アカウント登録は <Link to="/register">こちら</Link>
                 </FieldDescription>
