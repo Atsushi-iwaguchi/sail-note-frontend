@@ -14,9 +14,13 @@ export default function RecordDetail() {
 
   const navigate = useNavigate();
 
-  const handleDelete = () => {
-    api.delete(`/practice_records/${id}`);
-    navigate("/Practice-records");
+  const handleDelete = async () => {
+    try {
+      await api.delete(`/practice_records/${id}`);
+      navigate("/practice-records");
+    } catch {
+      setError("削除に失敗しました");
+    }
   };
 
   useEffect(() => {

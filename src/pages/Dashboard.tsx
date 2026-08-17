@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 import { ClipboardPen, Trophy, Target, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -26,6 +27,7 @@ const MenuItems = [
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   return (
     <div className="min-h-screen bg-[#f4f9ff]">
@@ -34,15 +36,12 @@ export default function Dashboard() {
       <main className="mx-auto max-w-5xl px-5 pb-32">
         <section className="flex items-center justify-between py-10 sm:py-14">
           <div>
-            <h1 className="text-3xl font-bold sm:text-4xl">
-              こんにちは！
-            </h1>
+            <h1 className="text-3xl font-bold sm:text-4xl">{user?.username} さん、こんにちは！</h1>
 
             <p className="mt-4 text-lg text-slate-600 sm:text-xl">
               今日も良いセーリングを！
             </p>
           </div>
-
         </section>
 
         <div className="flex flex-col gap-6">
