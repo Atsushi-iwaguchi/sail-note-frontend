@@ -35,6 +35,13 @@ export default function RecordDetail() {
     };
     fetchRecord();
   }, [id]);
+  const hasTuning =
+    record &&
+    (record.mast_rake !== null ||
+      record.mast_bend !== null ||
+      record.mast_spreader_angle !== null ||
+      record.mast_spreader_length !== null ||
+      record.mast_tension !== null);
 
   return (
     <div className="min-h-screen bg-[#f4f9ff]">
@@ -42,7 +49,6 @@ export default function RecordDetail() {
       <main className="mx-auto max-w-5xl px-5 pb-32">
         <div className="p-4 sm:p-10">
           {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-
           <Card className="p-4 sm:p-6">
             <CardHeader className="px-0 pt-0">
               <CardTitle className="text-base sm:text-lg">
@@ -51,6 +57,60 @@ export default function RecordDetail() {
             </CardHeader>
 
             <CardContent className="flex flex-col gap-4 px-0">
+              {hasTuning && (
+                <div>
+                  <p className="text-sm">チューニング詳細</p>
+
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-2 rounded-lg bg-slate-50 p-4 text-sm">
+                    {record.mast_rake !== null && (
+                      <>
+                        <span className="text-muted-foreground">レーキ</span>
+                        <span className="font-medium">{record.mast_rake}</span>
+                      </>
+                    )}
+
+                    {record.mast_bend !== null && (
+                      <>
+                        <span className="text-muted-foreground">ベンド</span>
+                        <span className="font-medium">{record.mast_bend}</span>
+                      </>
+                    )}
+
+                    {record.mast_spreader_angle !== null && (
+                      <>
+                        <span className="text-muted-foreground">
+                          ディレクション
+                        </span>
+                        <span className="font-medium">
+                          {record.mast_spreader_angle}
+                        </span>
+                      </>
+                    )}
+
+                    {record.mast_spreader_length !== null && (
+                      <>
+                        <span className="text-muted-foreground">
+                          スプレッダー長
+                        </span>
+                        <span className="font-medium">
+                          {record.mast_spreader_length}
+                        </span>
+                      </>
+                    )}
+
+                    {record.mast_tension !== null && (
+                      <>
+                        <span className="text-muted-foreground">
+                          テンション
+                        </span>
+                        <span className="font-medium">
+                          {record.mast_tension}
+                        </span>
+                      </>
+                    )}
+                  </div>
+                </div>
+              )}
               <p className="whitespace-pre-wrap text-sm">
                 {record?.reflection}
               </p>
