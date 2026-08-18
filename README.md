@@ -1,9 +1,11 @@
 # SailNote Frontend
 
-ヨット部向け練習記録管理アプリ「Sail Note」のフロントエンドリポジトリである。
-<img width="1600" height="900" alt="Sail Note" src="https://github.com/user-attachments/assets/53e7c8f5-0be3-4a02-a370-7f35b54bfac9" />
-
 アプリURL: https://sailnote-app.com
+
+ヨット部向け練習記録管理アプリ「Sail Note」のフロントエンドリポジトリである。
+
+<img width="1600" height="900" alt="Sail Note for README" src="https://github.com/user-attachments/assets/62929b8d-b2be-431c-a24b-9c7fa9cba385" />
+
 
 **ゲストユーザーアカウント情報**
 
@@ -27,14 +29,18 @@ Password: password123
 
 ## 概要
 
-ヨット部の練習記録・大会成績・月間目標を一元管理し、部員間で情報を共有できるWebアプリケーションである。
-
-現役ヨット部員時代、練習内容や船のセッティング、反省点が各自バラバラに管理されており、過去の記録を振り返りにくいという理由から開発した。
+**ヨット部の練習記録・大会成績・月間目標を一元管理し、部員間で情報を共有できるWebアプリ**
 
 **バックエンドリポジトリ**: [https://github.com/Atsushi-iwaguchi/sail-note-backend]
 
+## 開発背景
+私は大学時代ヨット部に所属しており、リーダーを2年間務めていました。その経験の中で、部員がモチベーションの管理に課題を抱えていることを感じました。
 
-## 主な技術
+練習内容や船のセッティング、反省点が各自バラバラに管理されており、過去の記録を振り返りにくいという課題があったため、本アプリを開発しました。
+また、モチベーション向上のために月間目標という項目を設け、毎月達成率を入力することでグラフとして可視化できるようにしました。
+
+
+## 主な機能
 - ユーザー登録・ログイン（JWT認証）
 - 練習記録のCRUD（風向・風速・潮汐・船のセッティング等を記録）
 - 天気APIとの連携（練習日の天気を自動取得、Open-Meteo APIを利用）
@@ -54,7 +60,7 @@ Password: password123
 | 認証 | jwt 3.2.0 / bcrypt 3.1.22 |
 | 環境構築 | Docker |
 | インフラ | AWS(EC2 / RDS / S3 / Route 53) |
-| CI/CD | Github Actions |
+| CI/CD | GitHub Actions |
 
 ### 技術選定の理由
 
