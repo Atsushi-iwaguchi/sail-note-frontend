@@ -1,6 +1,7 @@
 # SailNote Frontend
 
 ヨット部向け練習記録管理アプリ「Sail Note」のフロントエンドリポジトリである。
+<img width="1600" height="900" alt="Sail Note" src="https://github.com/user-attachments/assets/53e7c8f5-0be3-4a02-a370-7f35b54bfac9" />
 
 アプリURL: https://sailnote-app.com
 
@@ -18,6 +19,12 @@ Email: sample2@example.com
 
 Password: password123
 
+- ゲストユーザー3
+
+Email: sample3@example.com
+
+Password: password123
+
 ## 概要
 
 ヨット部の練習記録・大会成績・月間目標を一元管理し、部員間で情報を共有できるWebアプリケーションである。
@@ -25,11 +32,6 @@ Password: password123
 現役ヨット部員時代、練習内容や船のセッティング、反省点が各自バラバラに管理されており、過去の記録を振り返りにくいという理由から開発した。
 
 **バックエンドリポジトリ**: [https://github.com/Atsushi-iwaguchi/sail-note-backend]
-
-## デプロイURL
-
-- フロントエンド: https://xxxxx.vercel.app
-- バックエンドAPI: https://xxxxx.railway.app
 
 
 ## 主な技術
