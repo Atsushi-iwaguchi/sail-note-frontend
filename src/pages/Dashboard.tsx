@@ -36,7 +36,7 @@ export default function Dashboard() {
       <main className="mx-auto max-w-5xl px-5 pb-32">
         <section className="flex items-center justify-between py-10 sm:py-14">
           <div>
-            <h1 className="text-3xl font-bold sm:text-4xl">{user?.username} さん、こんにちは！</h1>
+            <h1 className="text-xl font-bold sm:text-2xl">{user?.username}さん、こんにちは！</h1>
 
             <p className="mt-4 text-lg text-slate-600 sm:text-xl">
               今日も良いセーリングを！
