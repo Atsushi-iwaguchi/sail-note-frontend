@@ -127,3 +127,11 @@ export type MonthlyGoalsRequest = {
   content: string;
   achievement_rate?: number;
 };
+
+export type FilterValues = {
+  fromDate: string;
+  toDate: string;
+  windDirection: string;
+  minWindSpeed: string;
+  maxWindSpeed: string;
+};

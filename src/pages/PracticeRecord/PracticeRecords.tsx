@@ -1,8 +1,13 @@
 import Header from "@/components/Header";
+import {
+  initialFilter,
+  PracticeRecordFilter,
+} from "@/components/PracticeRecord/PracticeRecordFilter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { api } from "@/lib/axios";
 import type { PracticeRecord } from "@/types";
+import type { FilterValues } from "@/types/PracticeRecordFilter";
 import { ClipboardPen, Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -10,19 +15,28 @@ import { useNavigate } from "react-router-dom";
 export default function PracticeRecords() {
   const [records, setRecords] = useState<PracticeRecord[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [filter, setFilter] = useState<FilterValues>(initialFilter);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchRecords = async () => {
       try {
-        const response = await api.get("/practice_records");
+        const response = await api.get("/practice_records", {
+          params: {
+            from_date: filter.fromDate || undefined,
+            to_date: filter.toDate || undefined,
+            wind_direction: filter.windDirection || undefined,
+            min_wind_speed: filter.minWindSpeed || undefined,
+            max_wind_speed: filter.maxWindSpeed || undefined,
+          },
+        });
         setRecords(response.data);
       } catch {
         setError("練習記録の取得に失敗しました");
       }
     };
     fetchRecords();
-  }, []);
+  }, [filter]);
 
   return (
     <div className="min-h-screen bg-[#f4f9ff]">
@@ -32,29 +46,27 @@ export default function PracticeRecords() {
         <section className="pt-10 sm:pt-14">
           <div className="flex items-center gap-3">
             <ClipboardPen className="size-8 text-[#064b87]" />
-
             <h1 className="text-3xl font-bold text-[#064b87] sm:text-4xl">
               練習記録一覧
             </h1>
           </div>
-
           <p className="mt-3 text-slate-600">これまでの練習記録を確認</p>
         </section>
-
-        <div className="flex items-center justify-between py-10 sm:py-14">
+        <div className="flex flex-col gap-4 py-6 sm:py-10">
           <Button
-            className="bg-[#064b87] hover:bg-[#053d6e]"
+            className="w-fit bg-[#064b87] shadow-sm hover:bg-[#053d6e]"
             onClick={() => navigate("/practice-records/new")}
           >
-            <Plus />
+            <Plus className="size-4" />
             新規作成
           </Button>
-          <p className="mb-2 text-sm text-muted-foreground">絞り込み</p>
+
+          <PracticeRecordFilter onFilterChange={setFilter} />
         </div>
 
-        {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
+        {error && <p className="text-red-500 text-sm mb-2 mt-3">{error}</p>}
 
-        <ul className="list-none flex flex-col gap-3">
+        <ul className="list-none flex flex-col gap-3 mt-4">
           {records.map((record) => (
             <li key={record.id}>
               <Card
