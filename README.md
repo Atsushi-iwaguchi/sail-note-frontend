@@ -7,7 +7,7 @@
 <img width="1600" height="900" alt="Sail Note for README" src="https://github.com/user-attachments/assets/62929b8d-b2be-431c-a24b-9c7fa9cba385" />
 
 
-**ゲストユーザーアカウント情報**
+**【ゲストユーザーアカウント情報】**
 
 - ゲストユーザー1
 
@@ -67,14 +67,18 @@ Password: password123
 
 ## 設計資料
 
-- [ER図]
-  <img width="1728" height="1104" alt="DatbaseSettings" src="https://github.com/user-attachments/assets/51a92f8a-842f-4c5b-a47d-5f6148262d3a" />
+- インフラ図
+<img width="1316" height="1547" alt="sail-note drawio" src="https://github.com/user-attachments/assets/5de3da52-2e20-4113-b76e-c83ecd89b17e" />
 
-- [DB設計書（Notion）]
+- ER図
+  <img width="1165" height="1371" alt="Untitled" src="https://github.com/user-attachments/assets/c0f6e14a-6bbd-4ac3-b99d-e79a92b324ad" />
+
+
+- DB設計書（Notion
   https://app.notion.com/p/388f9a11acb3807fabf0f09442f7fd06?source=copy_link
-- [API設計（OpenAPI）]
+- API設計（OpenAPI）
   https://gist.github.com/Atsushi-iwaguchi/743ad8a1ade213c17941e37964e3d500
-- [ワイヤーフレーム（Figma）]
+- ワイヤーフレーム（Figma）
   <img width="4538" height="3144" alt="Sailor Note" src="https://github.com/user-attachments/assets/20b856eb-3885-4a4b-8f60-cf179c6f5780" />
 
 
@@ -114,19 +118,7 @@ http://localhost:5173 でアクセスできます。
 npm run build
 \`\`\`
 
-## ディレクトリ構成
 
-\`\`\`
-src/
-├ components/   共通コンポーネント
-├ pages/        各ページコンポーネント
-├ hooks/        カスタムフック
-├ lib/          axios設定等
-├ types/        型定義
-└ App.tsx
-\`\`\`
-
-## 作成者
 
 （名前 / X / GitHub等のリンク）
 
