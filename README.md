@@ -40,11 +40,54 @@ Password: password123
 
 ## 主な機能
 - ユーザー登録・ログイン（JWT認証）
-- 練習記録のCRUD（風向・風速・潮汐・船のセッティング等を記録）
+- 練習記録のCRUD（風向・風速・潮汐・艇のセッティング等を記録）
 - 天気APIとの連携（練習日の天気を自動取得、Open-Meteo APIを利用）
-- 練習記録への絞り込み検索（風向・風速・日付・ユーザー名）
+- 練習記録への絞り込み検索（風向・風速・日付）
 - 大会記録・レース結果の管理
 - 月間目標の設定・達成率の推移表示
+
+### ログイン画面
+メールアドレスとパスワードを入力することでダッシュボード画面に遷移します。
+
+<img width="208" height="369" alt="Animation" src="https://github.com/user-attachments/assets/dc7f0a19-6cb3-4f88-8c47-6d1fe637dd78" />
+
+### 練習記録の作成
+
+練習記録の新規作成で作成することができます。
+入力項目は日付、風向、風速、天気、気温、潮汐、練習内容、艇のチューニング、振り返りがあります。
+
+<img width="416" height="738" alt="practiceRecord-create" src="https://github.com/user-attachments/assets/7633287c-6ea9-4e99-8cde-0c95b202dfb3" />
+
+
+### 天気情報自動取得
+練習記録を作成する際に天気、気温を入力する欄がありますが、練習日を入力するとOpen-Meteo APIから岡山県のその日の天気と気温を取得するようになっています。
+取得した気温はデフォルト値として入力されるため、手動で入力する手間を減らしています。
+
+
+<img width="208" height="369" alt="weather-api" src="https://github.com/user-attachments/assets/763e8a0d-d039-4f55-826b-74026554bf2f" />
+
+
+### 練習記録の絞り込み機能
+現在は日付、風向、風速で絞り込みが可能です。
+
+<img width="208" height="369" alt="siborikomi" src="https://github.com/user-attachments/assets/76294a95-0e83-495c-8b2b-3fc580bfca3e" />
+
+
+### 大会記録
+大会を登録し、ユーザーは大会の結果を入力することができます。
+
+<img width="208" height="369" alt="tournament" src="https://github.com/user-attachments/assets/faa2bdc3-4768-4090-80b2-7877d397d282" />
+
+総合順位を入力後レースの詳細結果を入力することができます。
+
+<img width="208" height="369" alt="raceResult" src="https://github.com/user-attachments/assets/6d29453d-b75b-4b39-8a12-3915992012df" />
+
+
+
+### 月間目標
+月ごとに目標を設定することができます。編集画面から達成率を変更することができます。
+
+<img width="208" height="369" alt="monthlyGoal" src="https://github.com/user-attachments/assets/e33ce25e-9fed-486c-890d-0f44bfeac84c" />
 
 
 ## 使用技術
@@ -54,8 +97,8 @@ Password: password123
 | フロントエンド | React 19.2.7 / TypeScript 6.0.2 / Vite 8.1.1 |
 | UI | Tailwind CSS 4.3.3 / shadcn/ui 4.14.1 |
 | バックエンド | Ruby on Rails 8.1.3.1 |
-| データベース | PostgreSQL 1.6.3 |
-| 認証 | jwt 3.2.0 / bcrypt 3.1.22 |
+| データベース | PostgreSQL 16 |
+| 認証 | jwt/ bcrypt |
 | 環境構築 | Docker |
 | インフラ | AWS(EC2 / RDS / S3 / Route 53) |
 | CI/CD | GitHub Actions |
@@ -89,8 +132,8 @@ Password: password123
 ### インストール
 
 \`\`\`bash
-git clone https://github.com/xxxxx/sail_log_frontend.git
-cd sail_log_frontend
+git clone https://github.com/Atsushi-iwaguchi/sail-note-frontend.git
+cd sail-note-frontend
 npm install
 \`\`\`
 
