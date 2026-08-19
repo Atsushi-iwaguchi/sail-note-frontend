@@ -22,7 +22,7 @@ export default function TournamentNew() {
     }
   };
   return (
-    <div className="min-h-screen bg-[#f4f9ff]">
+    <div className="min-h-screen">
       <Header />
 
       <MonthlyGoalsForm
