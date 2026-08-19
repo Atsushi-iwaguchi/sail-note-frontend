@@ -56,7 +56,7 @@ Password: password123
 練習記録の新規作成で作成することができます。
 入力項目は日付、風向、風速、天気、気温、潮汐、練習内容、艇のチューニング、振り返りがあります。
 
-<img width="416" height="738" alt="practiceRecord-create" src="https://github.com/user-attachments/assets/7633287c-6ea9-4e99-8cde-0c95b202dfb3" />
+<img width="208" height="369" alt="practiceRecord-create" src="https://github.com/user-attachments/assets/7633287c-6ea9-4e99-8cde-0c95b202dfb3" />
 
 
 ### 天気情報自動取得
