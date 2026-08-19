@@ -53,10 +53,7 @@ export default function PracticeRecords() {
           <p className="mt-3 text-slate-600">これまでの練習記録を確認</p>
         </section>
         <div className="flex flex-col gap-4 py-6 sm:py-10">
-          <Button
-            className="w-fit bg-[#064b87] shadow-sm hover:bg-[#053d6e]"
-            onClick={() => navigate("/practice-records/new")}
-          >
+          <Button onClick={() => navigate("/practice-records/new")}>
             <Plus className="size-4" />
             新規作成
           </Button>

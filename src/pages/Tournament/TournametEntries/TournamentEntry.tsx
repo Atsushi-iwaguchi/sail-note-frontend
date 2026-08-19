@@ -75,7 +75,11 @@ export default function TournamentEntry() {
               variant="ghost"
               size="icon"
               aria-label="編集"
-              onClick={() => navigate(`/tournaments/${id}/tournament-entries/${entry_id}/edit`)}
+              onClick={() =>
+                navigate(
+                  `/tournaments/${id}/tournament-entries/${entry_id}/edit`,
+                )
+              }
             >
               <Pencil className="size-4" />
             </Button>

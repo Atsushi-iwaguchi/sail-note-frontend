@@ -32,7 +32,7 @@ export default function MonthlyGoals() {
 
       <div className="m-2 flex items-center justify-between p-2">
         <h1 className="text-3xl font-bold">月間目標</h1>
-        <Button className="bg-[#064b87] hover:bg-[#053d6e]" onClick={() => navigate("/monthly-goals/new")}>新規作成</Button>
+        <Button onClick={() => navigate("/monthly-goals/new")}>新規作成</Button>
       </div>
       <div className="p-5">
         {error && <p>{error}</p>}
