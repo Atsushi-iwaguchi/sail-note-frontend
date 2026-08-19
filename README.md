@@ -1,10 +1,13 @@
 # SailNote Frontend
 
-ヨット部向け練習記録管理アプリ「Sail Note」のフロントエンドリポジトリである。
-
 アプリURL: https://sailnote-app.com
 
-**ゲストユーザーアカウント情報**
+ヨット部向け練習記録管理アプリ「Sail Note」のフロントエンドリポジトリである。
+
+<img width="1600" height="900" alt="Sail Note for README" src="https://github.com/user-attachments/assets/62929b8d-b2be-431c-a24b-9c7fa9cba385" />
+
+
+**【ゲストユーザーアカウント情報】**
 
 - ゲストユーザー1
 
@@ -18,21 +21,26 @@ Email: sample2@example.com
 
 Password: password123
 
+- ゲストユーザー3
+
+Email: sample3@example.com
+
+Password: password123
+
 ## 概要
 
-ヨット部の練習記録・大会成績・月間目標を一元管理し、部員間で情報を共有できるWebアプリケーションである。
-
-現役ヨット部員時代、練習内容や船のセッティング、反省点が各自バラバラに管理されており、過去の記録を振り返りにくいという理由から開発した。
+**ヨット部の練習記録・大会成績・月間目標を一元管理し、部員間で情報を共有できるWebアプリ**
 
 **バックエンドリポジトリ**: [https://github.com/Atsushi-iwaguchi/sail-note-backend]
 
-## デプロイURL
+## 開発背景
+私は大学時代ヨット部に所属しており、リーダーを2年間務めていました。その経験の中で、部員がモチベーションの管理に課題を抱えていることを感じました。
 
-- フロントエンド: https://xxxxx.vercel.app
-- バックエンドAPI: https://xxxxx.railway.app
+練習内容や船のセッティング、反省点が各自バラバラに管理されており、過去の記録を振り返りにくいという課題があったため、本アプリを開発しました。
+また、モチベーション向上のために月間目標という項目を設け、毎月達成率を入力することでグラフとして可視化できるようにしました。
 
 
-## 主な技術
+## 主な機能
 - ユーザー登録・ログイン（JWT認証）
 - 練習記録のCRUD（風向・風速・潮汐・船のセッティング等を記録）
 - 天気APIとの連携（練習日の天気を自動取得、Open-Meteo APIを利用）
@@ -52,21 +60,25 @@ Password: password123
 | 認証 | jwt 3.2.0 / bcrypt 3.1.22 |
 | 環境構築 | Docker |
 | インフラ | AWS(EC2 / RDS / S3 / Route 53) |
-| CI/CD | Github Actions |
+| CI/CD | GitHub Actions |
 
 ### 技術選定の理由
 
 
 ## 設計資料
 
-- [ER図]
-  <img width="1728" height="1104" alt="DatbaseSettings" src="https://github.com/user-attachments/assets/51a92f8a-842f-4c5b-a47d-5f6148262d3a" />
+- インフラ図
+<img width="1316" height="1547" alt="sail-note drawio" src="https://github.com/user-attachments/assets/5de3da52-2e20-4113-b76e-c83ecd89b17e" />
 
-- [DB設計書（Notion）]
+- ER図
+  <img width="1165" height="1371" alt="Untitled" src="https://github.com/user-attachments/assets/c0f6e14a-6bbd-4ac3-b99d-e79a92b324ad" />
+
+
+- DB設計書（Notion
   https://app.notion.com/p/388f9a11acb3807fabf0f09442f7fd06?source=copy_link
-- [API設計（OpenAPI）]
+- API設計（OpenAPI）
   https://gist.github.com/Atsushi-iwaguchi/743ad8a1ade213c17941e37964e3d500
-- [ワイヤーフレーム（Figma）]
+- ワイヤーフレーム（Figma）
   <img width="4538" height="3144" alt="Sailor Note" src="https://github.com/user-attachments/assets/20b856eb-3885-4a4b-8f60-cf179c6f5780" />
 
 
@@ -106,19 +118,7 @@ http://localhost:5173 でアクセスできます。
 npm run build
 \`\`\`
 
-## ディレクトリ構成
 
-\`\`\`
-src/
-├ components/   共通コンポーネント
-├ pages/        各ページコンポーネント
-├ hooks/        カスタムフック
-├ lib/          axios設定等
-├ types/        型定義
-└ App.tsx
-\`\`\`
-
-## 作成者
 
 （名前 / X / GitHub等のリンク）
 
