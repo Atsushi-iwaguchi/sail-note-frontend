@@ -130,35 +130,28 @@ Password: password123
 - npm
 
 ### インストール
-
-\`\`\`bash
+```bash
 git clone https://github.com/Atsushi-iwaguchi/sail-note-frontend.git
 cd sail-note-frontend
 npm install
-\`\`\`
+```
 
 ### 環境変数
-
-\`.env\`ファイルを作成し、以下を設定してください。
-
-\`\`\`
+`.env`ファイルを作成し、以下を設定してください。
+```
 VITE_API_URL=http://localhost:3000
-\`\`\`
+```
 
 ### 開発サーバー起動
-
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
-
+```
 http://localhost:5173 でアクセスできます。
 
 ### ビルド
-
-\`\`\`bash
+```bash
 npm run build
-\`\`\`
-
+```
 
 ## 今後の改善予定
 
